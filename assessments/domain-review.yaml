@@ -1,0 +1,129 @@
+schema_version: 1
+kind: question_bank
+id: ats082-domain-review
+course_id: ATS082
+exam_code: CNPA
+status: draft
+provenance: Original practice material; not official examination questions.
+scope:
+  type: domain
+  id: domain-review
+  title: Measuring your Platform
+placement:
+  position: after
+  reading: sections/section-020/module-01/course-02-summary.md
+questions:
+- id: ats082-domain-review-q01
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Distinguish platform efficiency from individual activity counts.
+  source_readings:
+  - sections/section-010/module-01/course-01-task-outcomes-flow-and-developer-productivity-evidence.md
+  prompt: Which measure is more directly tied to a provisioning capability's value?
+  options:
+  - id: a
+    text: Number of unused portal cards.
+    explanation: Feature count does not establish value.
+  - id: b
+    text: Time and reliability from valid request to usable environment.
+    explanation: It measures a defined task outcome.
+  - id: c
+    text: Lines of code written by each user.
+    explanation: That is an activity proxy.
+  correct_option: b
+  explanation: It measures a defined task outcome.
+- id: ats082-domain-review-q02
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Explain quantitative and qualitative evidence for developer experience.
+  source_readings:
+  - sections/section-010/module-01/course-01-task-outcomes-flow-and-developer-productivity-evidence.md
+  prompt: Why combine user feedback with quantitative measures?
+  options:
+  - id: a
+    text: Counts can miss confusion, waiting and workarounds.
+    explanation: Qualitative evidence adds context.
+  - id: b
+    text: Feedback automatically proves every hypothesis.
+    explanation: It still needs interpretation.
+  - id: c
+    text: All numerical evidence is meaningless.
+    explanation: Defined measures can be useful.
+  correct_option: a
+  explanation: Qualitative evidence adds context.
+- id: ats082-domain-review-q03
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Reason about denominators, context and unintended incentives.
+  source_readings:
+  - sections/section-010/module-01/course-01-task-outcomes-flow-and-developer-productivity-evidence.md
+  prompt: Why avoid ranking developers only by commit count?
+  options:
+  - id: a
+    text: Every commit has identical consequence.
+    explanation: Changes vary widely.
+  - id: b
+    text: More commits guarantee better reliability.
+    explanation: Activity does not establish quality.
+  - id: c
+    text: It can reward activity rather than useful outcomes and collaboration.
+    explanation: Productivity is multidimensional.
+  correct_option: c
+  explanation: Productivity is multidimensional.
+- id: ats082-domain-review-q04
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Explain delivery throughput and instability measures.
+  source_readings:
+  - sections/section-020/module-01/course-01-delivery-metrics-historical-models-and-platform-interpretation.md
+  prompt: What does change lead time concern?
+  options:
+  - id: a
+    text: Total lifetime of every database.
+    explanation: That is infrastructure lifecycle.
+  - id: b
+    text: Time from a committed change to its production deployment.
+    explanation: It follows delivery flow.
+  - id: c
+    text: Time spent reading a portal homepage only.
+    explanation: That is not the delivery definition.
+  correct_option: b
+  explanation: It follows delivery flow.
+- id: ats082-domain-review-q05
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Distinguish traditional four-key terminology from the current five-metric model.
+  source_readings:
+  - sections/section-020/module-01/course-01-delivery-metrics-historical-models-and-platform-interpretation.md
+  prompt: Which measure is added in the current five-metric model?
+  options:
+  - id: a
+    text: Deployment rework rate.
+    explanation: It captures unplanned deployments resulting from production incidents.
+  - id: b
+    text: Number of browser tabs.
+    explanation: That is not a DORA metric.
+  - id: c
+    text: Catalog logo count.
+    explanation: That is unrelated to delivery.
+  correct_option: a
+  explanation: It captures unplanned deployments resulting from production incidents.
+- id: ats082-domain-review-q06
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Reason about service scope, causal limits and platform improvements.
+  source_readings:
+  - sections/section-020/module-01/course-01-delivery-metrics-historical-models-and-platform-interpretation.md
+  prompt: Why preserve service context when comparing metrics?
+  options:
+  - id: a
+    text: Every team has identical delivery needs.
+    explanation: Context differs.
+  - id: b
+    text: Metrics automatically prove platform causation.
+    explanation: Other changes can affect outcomes.
+  - id: c
+    text: Different systems and processes have different populations and constraints.
+    explanation: Blended aggregates can mislead.
+  correct_option: c
+  explanation: Blended aggregates can mislead.

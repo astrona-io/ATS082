@@ -1,8 +1,9 @@
-# Preparation scaffold. Technical pages stay draft until authoring and review.
+# Reading-only content; YAML knowledge checks have a separate index.
 training:
   id: ATS082
   title: 'CNPA: Measuring your Platform'
-  description: Preparation scaffold for Measuring your Platform. Lessons and environments are planned.
+  description: 'Detailed reading material and reusable YAML knowledge checks for CNPA: Measuring your
+    Platform. Technical content remains draft. No labs or playgrounds.'
   certification:
     name: Certified Cloud Native Platform Engineering Associate
     code: CNPA
@@ -15,7 +16,7 @@ training:
 modules:
 - id: module-intro
   title: Introduction
-  description: Planned introduction and authoring status.
+  description: Audience, reading method and review process.
   content:
   - type: reading
     title: Introduction
@@ -31,21 +32,35 @@ modules:
     path: sections/intro/course-03-how-this-course-is-made.md
 - id: module-010
   title: Platform Efficiency and Team Productivity
-  description: Planned coverage of this curriculum objective.
+  description: Developed reading and reasoning for Platform Efficiency and Team Productivity.
+  draft: true
   content:
-  - type: reading
-    title: Section Overview
-    path: sections/section-010/README.md
   - type: reading
     title: Platform Efficiency and Team Productivity
+    path: sections/section-010/README.md
+  - type: reading
+    title: Task Outcomes, Flow And Developer Productivity Evidence
     path: sections/section-010/module-01/course.md
+  - type: reading
+    title: Task Outcomes, Flow And Developer Productivity Evidence
+    path: sections/section-010/module-01/course-01-task-outcomes-flow-and-developer-productivity-evidence.md
+  - type: reading
+    title: Summary
+    path: sections/section-010/module-01/course-02-summary.md
 - id: module-020
   title: DORA Metrics for Platform Initiatives
-  description: Planned coverage of this curriculum objective.
+  description: Developed reading and reasoning for DORA Metrics for Platform Initiatives.
+  draft: true
   content:
   - type: reading
-    title: Section Overview
+    title: DORA Metrics for Platform Initiatives
     path: sections/section-020/README.md
   - type: reading
-    title: DORA Metrics for Platform Initiatives
+    title: Delivery Metrics, Historical Models And Platform Interpretation
     path: sections/section-020/module-01/course.md
+  - type: reading
+    title: Delivery Metrics, Historical Models And Platform Interpretation
+    path: sections/section-020/module-01/course-01-delivery-metrics-historical-models-and-platform-interpretation.md
+  - type: reading
+    title: Summary
+    path: sections/section-020/module-01/course-02-summary.md
