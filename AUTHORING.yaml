@@ -1,0 +1,59 @@
+version: 1
+approval: CNPA requested 2026-10-11; established reading-only scope
+course:
+  id: ATS082
+  certification:
+    name: Certified Cloud Native Platform Engineering Associate
+    code: CNPA
+    provider: CNCF / Linux Foundation
+    domain: Measuring your Platform
+    weight: 8
+    competencies:
+    - Platform Efficiency and Team Productivity
+    - DORA Metrics for Platform Initiatives
+defaults:
+  playground: false
+  module_lab: false
+  capstone: false
+  section_quiz: false
+  final_quiz: true
+assessment_format: YAML question banks v1, registered in assessments/index.yaml
+sections:
+- id: section-010
+  title: Platform Efficiency and Team Productivity
+  curriculum_item: Platform Efficiency and Team Productivity
+  capstone: false
+  section_quiz: false
+  modules:
+  - id: module-01
+    title: Task Outcomes, Flow And Developer Productivity Evidence
+    objectives:
+    - Distinguish platform efficiency from individual activity counts.
+    - Explain quantitative and qualitative evidence for developer experience.
+    - Reason about denominators, context and unintended incentives.
+    outline:
+    - Task Outcomes, Flow And Developer Productivity Evidence
+    playground: false
+    module_lab: false
+    sources:
+    - reading: sections/section-010/module-01/course-01-task-outcomes-flow-and-developer-productivity-evidence.md
+      adapted_from: null
+- id: section-020
+  title: DORA Metrics for Platform Initiatives
+  curriculum_item: DORA Metrics for Platform Initiatives
+  capstone: false
+  section_quiz: false
+  modules:
+  - id: module-01
+    title: Delivery Metrics, Historical Models And Platform Interpretation
+    objectives:
+    - Explain delivery throughput and instability measures.
+    - Distinguish traditional four-key terminology from the current five-metric model.
+    - Reason about service scope, causal limits and platform improvements.
+    outline:
+    - Delivery Metrics, Historical Models And Platform Interpretation
+    playground: false
+    module_lab: false
+    sources:
+    - reading: sections/section-020/module-01/course-01-delivery-metrics-historical-models-and-platform-interpretation.md
+      adapted_from: null
