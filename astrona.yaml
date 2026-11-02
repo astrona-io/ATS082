@@ -33,7 +33,7 @@ modules:
 - id: module-010
   title: Platform Efficiency and Team Productivity
   description: Developed reading and reasoning for Platform Efficiency and Team Productivity.
-  draft: true
+  status: alpha
   content:
   - type: reading
     title: Platform Efficiency and Team Productivity
@@ -50,7 +50,7 @@ modules:
 - id: module-020
   title: DORA Metrics for Platform Initiatives
   description: Developed reading and reasoning for DORA Metrics for Platform Initiatives.
-  draft: true
+  status: alpha
   content:
   - type: reading
     title: DORA Metrics for Platform Initiatives
