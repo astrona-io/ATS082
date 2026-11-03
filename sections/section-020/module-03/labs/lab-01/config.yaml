@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=https://cli.astrona.io/schema/lab-config.schema.json
+#
+# Read A Quarterly DORA Trend (LAB). Graded against the live cluster. Built untested.
+apiVersion: astrona.io/v1
+metadata:
+  name: ats-082-lab-020-03
+  docs:
+    prerequisites: prerequisites.md
+    question: question.md
+    solution: solution.md
+
+runtime:
+  type: kind
+  kind:
+    image: kindest/node:v1.35.8
+
+# Starting state: namespace delivery with the ConfigMap deployment-history (24 deployments of the service probe-api over three quarters). No report exists.
+bootstrap:
+  init:
+    - name: seed-cluster
+      description: Create the namespace and the source data
+      type: file
+      source: bootstrap/01-seed-cluster.sh
+
+# Applied only by `astrona test`: the reference solution.
+testing:
+  init:
+    - name: apply-solution
+      description: Apply the reference solution
+      type: file
+      source: solution/apply.sh
+
+validation:
+  scripts:
+    - name: data-unchanged
+      description: "The source ConfigMap deployment-history is unchanged"
+      type: file
+      source: validation/validate-deployment-history-data-unchanged.sh
+      hint: "Do not edit the ConfigMap deployment-history. Compute from it and write your results in a new ConfigMap."
+    - name: deployments-per-quarter
+      description: "The deployments of each quarter are counted"
+      type: file
+      source: validation/validate-deployments-per-quarter.sh
+      hint: "Group the records by the field quarter."
+    - name: lead-time-per-quarter
+      description: "The median change lead time of each quarter is recorded"
+      type: file
+      source: validation/validate-lead-time-per-quarter.sh
+      hint: "Median of lead_time_hours per quarter. For an even count, average the two middle values."
+    - name: change-fail-rate-per-quarter
+      description: "The change fail rate of each quarter is recorded"
+      type: file
+      source: validation/validate-change-fail-rate-per-quarter.sh
+      hint: "Failed deployments divided by all deployments of the quarter, times 100."
+    - name: recovery-time-per-quarter
+      description: "The median failed deployment recovery time of each quarter is recorded"
+      type: file
+      source: validation/validate-recovery-time-per-quarter.sh
+      hint: "Use failed deployments only and recovery_minutes. Median per quarter."
+    - name: trend-verdicts
+      description: "The lead time and instability trends from Q2 to Q3 are named"
+      type: file
+      source: validation/validate-trend-verdicts.sh
+      hint: "Compare Q3 with Q2. Use the words faster or slower for lead time and better or worse for the change fail rate and the recovery time."
+teardown:
+  keepCluster: false

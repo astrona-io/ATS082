@@ -1,0 +1,206 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: delivery
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: deployment-history
+  namespace: delivery
+data:
+  deployments.json: |
+    [
+      {
+        "id": "p01",
+        "quarter": "Q1",
+        "lead_time_hours": 48,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": true
+      },
+      {
+        "id": "p02",
+        "quarter": "Q1",
+        "lead_time_hours": 72,
+        "failed": true,
+        "recovery_minutes": 180,
+        "rework": true
+      },
+      {
+        "id": "p03",
+        "quarter": "Q1",
+        "lead_time_hours": 50,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p04",
+        "quarter": "Q1",
+        "lead_time_hours": 96,
+        "failed": true,
+        "recovery_minutes": 240,
+        "rework": false
+      },
+      {
+        "id": "p05",
+        "quarter": "Q1",
+        "lead_time_hours": 60,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": true
+      },
+      {
+        "id": "p06",
+        "quarter": "Q1",
+        "lead_time_hours": 70,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p07",
+        "quarter": "Q2",
+        "lead_time_hours": 30,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p08",
+        "quarter": "Q2",
+        "lead_time_hours": 36,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p09",
+        "quarter": "Q2",
+        "lead_time_hours": 40,
+        "failed": true,
+        "recovery_minutes": 90,
+        "rework": true
+      },
+      {
+        "id": "p10",
+        "quarter": "Q2",
+        "lead_time_hours": 28,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p11",
+        "quarter": "Q2",
+        "lead_time_hours": 44,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p12",
+        "quarter": "Q2",
+        "lead_time_hours": 32,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p13",
+        "quarter": "Q2",
+        "lead_time_hours": 50,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": true
+      },
+      {
+        "id": "p14",
+        "quarter": "Q2",
+        "lead_time_hours": 38,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p15",
+        "quarter": "Q3",
+        "lead_time_hours": 20,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p16",
+        "quarter": "Q3",
+        "lead_time_hours": 18,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p17",
+        "quarter": "Q3",
+        "lead_time_hours": 24,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p18",
+        "quarter": "Q3",
+        "lead_time_hours": 22,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p19",
+        "quarter": "Q3",
+        "lead_time_hours": 26,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p20",
+        "quarter": "Q3",
+        "lead_time_hours": 19,
+        "failed": true,
+        "recovery_minutes": 45,
+        "rework": true
+      },
+      {
+        "id": "p21",
+        "quarter": "Q3",
+        "lead_time_hours": 30,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p22",
+        "quarter": "Q3",
+        "lead_time_hours": 21,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      },
+      {
+        "id": "p23",
+        "quarter": "Q3",
+        "lead_time_hours": 23,
+        "failed": true,
+        "recovery_minutes": 400,
+        "rework": true
+      },
+      {
+        "id": "p24",
+        "quarter": "Q3",
+        "lead_time_hours": 25,
+        "failed": false,
+        "recovery_minutes": null,
+        "rework": false
+      }
+    ]

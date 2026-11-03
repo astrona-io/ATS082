@@ -14,6 +14,8 @@ This module explains how a platform team combines numbers and user feedback to j
 - Normalise a count by a denominator, for example tickets per 100 sessions, and read it together with a completion rate.
 - Explain how a measure used as a target is gamed, and how a single metric can reward the wrong behaviour.
 - Identify a confounding change and state what a before-and-after comparison can and cannot show.
+- Write a clear survey question, keep the scale fixed and report the distribution, the response rate and who is missing.
+- Turn comments into themes and combine them with numbers by triangulation.
 
 ## Before You Start
 
@@ -23,6 +25,8 @@ You should know what a ConfigMap is and how to read JSON with `jq`. The playgrou
 
 1. Quantitative And Qualitative Evidence Of Developer Experience
 2. Incentives, Context And Causation
-3. Summary
+3. Designing Developer Surveys: Questions, Scales And Response Bias
+4. Qualitative Evidence: Interviews, Themes And Triangulation
+5. Summary
 
 <!-- astrona:playground -->

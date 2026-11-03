@@ -37,6 +37,8 @@ sections:
     outline:
     - Task Outcomes, Populations And Denominators
     - Time To Complete, Percentiles And Survivorship
+    - Flow, Wait Time And Work In Progress
+    - Failures, Abandonment And Wasted Time
     playground: true
     module_lab: true
   - id: module-02
@@ -48,6 +50,34 @@ sections:
     outline:
     - Quantitative And Qualitative Evidence Of Developer Experience
     - Incentives, Context And Causation
+    - Designing Developer Surveys: Questions, Scales And Response Bias
+    - Qualitative Evidence: Interviews, Themes And Triangulation
+    playground: true
+    module_lab: true
+  - id: module-03
+    title: Platform Adoption, Onboarding And Product Metrics
+    objectives:
+    - Compute an adoption rate over eligible teams and separate mandated from voluntary adoption.
+    - Measure onboarding time and self-service with medians and percentiles.
+    - Read satisfaction scores (CSAT and NPS) with their response rates.
+    outline:
+    - Adoption Rate And Active Use
+    - Onboarding And Time To First Deployment
+    - Self-Service, Tickets And Toil
+    - The Platform As A Product: Satisfaction And Feedback
+    playground: true
+    module_lab: true
+  - id: module-04
+    title: "Developer Productivity Frameworks: SPACE, DevEx And Cognitive Load"
+    objectives:
+    - Name the five SPACE dimensions and explain why one metric is not enough.
+    - Name the three DevEx areas (feedback loops, cognitive load, flow state).
+    - Build a balanced metric set across dimensions and levels.
+    outline:
+    - Why One Metric Fails, And The SPACE Dimensions
+    - "The DevEx Framework: Feedback Loops, Cognitive Load And Flow"
+    - Measuring Cognitive Load And Platform Friction
+    - Building A Balanced Metric Set
     playground: true
     module_lab: true
 - id: section-020
@@ -65,6 +95,8 @@ sections:
     outline:
     - The Five Delivery Metrics
     - Computing Delivery Metrics From Deployment Events
+    - Windows, Medians And Edge Cases In Deployment Data
+    - Defining Deployment, Failure And Recovery In Deployment Events
     playground: true
     module_lab: true
   - id: module-02
@@ -76,5 +108,20 @@ sections:
     outline:
     - From Four Keys To Five Metrics
     - Service Scope, Causal Limits And Platform Initiatives
+    - Gaming And Healthy Use Of Delivery Metrics
+    - Throughput And Instability Trade-Offs In Platform Initiatives
+    playground: true
+    module_lab: true
+  - id: module-03
+    title: Collecting And Improving DORA Metrics With A Platform
+    objectives:
+    - Name the data sources for the five metrics and keep definitions consistent across services.
+    - Read quarterly trends and decide whether each metric got better or worse.
+    - Find the constraint and use the metrics for improvement without gaming.
+    outline:
+    - Data Sources And Consistent Definitions
+    - Trends Over Time And Performance Profiles
+    - Finding The Constraint And Improving It With The Platform
+    - Healthy Use Of DORA Metrics
     playground: true
     module_lab: true

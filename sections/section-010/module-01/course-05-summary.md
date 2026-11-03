@@ -13,11 +13,17 @@ Time is the second half of the report. A mean is pulled by a few extreme values,
 
 A breakdown by class or service shows where users meet friction. Every breakdown has fewer values, so the count must stay visible and a small group is a reason to collect more data.
 
+A request spends its time working and waiting. Flow efficiency is the work time divided by the total time, and in manual processes most of the time is waiting, so removing a queue often saves more than speeding up a step. Work in progress, throughput and time in the system are linked, and limiting work in progress shortens the time.
+
+Failed and abandoned requests are different outcomes. A failure is a platform error and ends quickly. Abandonment is a user decision after a long wait. Together they can use more user time than the requests that completed, and they usually concentrate in one class, which shows where to work first.
+
 Key facts:
 
 - The completion rate has all attempts in the denominator.
 - The median is the 50th percentile and p90 is the time that 90 percent of requests meet.
 - The nearest-rank percentile is the value at position `ceil(p x n)` of the sorted values.
 - A time-to-complete figure and a completion rate belong in the same report.
+- Flow efficiency = work time / total time x 100.
+- Failed and abandoned requests are reported separately, with their time and class.
 
 <!-- astrona:playground:destroy -->

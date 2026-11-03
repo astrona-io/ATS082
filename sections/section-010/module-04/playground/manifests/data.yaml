@@ -1,0 +1,139 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: metrics
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: metric-catalogue
+  namespace: metrics
+data:
+  metrics.json: |
+    [
+      {
+        "metric": "developer satisfaction survey",
+        "dimension": "satisfaction",
+        "level": "team",
+        "measure": "perceptual",
+        "devex": "none"
+      },
+      {
+        "metric": "burnout risk score",
+        "dimension": "satisfaction",
+        "level": "team",
+        "measure": "perceptual",
+        "devex": "none"
+      },
+      {
+        "metric": "change fail rate",
+        "dimension": "performance",
+        "level": "team",
+        "measure": "workflow",
+        "devex": "none"
+      },
+      {
+        "metric": "customer-reported defects",
+        "dimension": "performance",
+        "level": "team",
+        "measure": "workflow",
+        "devex": "none"
+      },
+      {
+        "metric": "commits per developer",
+        "dimension": "activity",
+        "level": "individual",
+        "measure": "workflow",
+        "devex": "none"
+      },
+      {
+        "metric": "pull requests merged per week",
+        "dimension": "activity",
+        "level": "team",
+        "measure": "workflow",
+        "devex": "none"
+      },
+      {
+        "metric": "lines of code per developer",
+        "dimension": "activity",
+        "level": "individual",
+        "measure": "workflow",
+        "devex": "none"
+      },
+      {
+        "metric": "deployments per day",
+        "dimension": "activity",
+        "level": "team",
+        "measure": "workflow",
+        "devex": "none"
+      },
+      {
+        "metric": "review turnaround hours",
+        "dimension": "communication",
+        "level": "team",
+        "measure": "workflow",
+        "devex": "feedback loops"
+      },
+      {
+        "metric": "time to first deployment",
+        "dimension": "efficiency",
+        "level": "team",
+        "measure": "workflow",
+        "devex": "cognitive load"
+      },
+      {
+        "metric": "interruptions per day",
+        "dimension": "efficiency",
+        "level": "team",
+        "measure": "perceptual",
+        "devex": "flow state"
+      },
+      {
+        "metric": "build wait minutes",
+        "dimension": "efficiency",
+        "level": "team",
+        "measure": "workflow",
+        "devex": "feedback loops"
+      },
+      {
+        "metric": "tools per workflow",
+        "dimension": "efficiency",
+        "level": "team",
+        "measure": "workflow",
+        "devex": "cognitive load"
+      }
+    ]
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: team-measurements
+  namespace: metrics
+data:
+  teams.json: |
+    [
+      {
+        "team": "bridge",
+        "satisfaction": 4.2,
+        "build_wait_minutes": 9,
+        "deployments_per_day": 3.1,
+        "change_fail_rate": 8,
+        "interruptions_per_day": 2
+      },
+      {
+        "team": "scout",
+        "satisfaction": 2.6,
+        "build_wait_minutes": 31,
+        "deployments_per_day": 0.8,
+        "change_fail_rate": 22,
+        "interruptions_per_day": 7
+      },
+      {
+        "team": "shuttle",
+        "satisfaction": 3.4,
+        "build_wait_minutes": 14,
+        "deployments_per_day": 5.5,
+        "change_fail_rate": 31,
+        "interruptions_per_day": 4
+      }
+    ]

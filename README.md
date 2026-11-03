@@ -8,8 +8,8 @@ Concept lessons explain each official objective with worked calculations and sce
 
 | Section | Objective | Modules | Tools used in the labs |
 | --- | --- | --- | --- |
-| 010 | Platform Efficiency and Team Productivity | 2 + capstone | kubectl, jq (completion rate, percentiles, survey and ticket evidence) |
-| 020 | DORA Metrics for Platform Initiatives | 2 + capstone | kubectl, jq (five DORA metrics, interpretation of claims) |
+| 010 | Platform Efficiency and Team Productivity | 4 + capstone | kubectl, jq (completion rate, percentiles, adoption, onboarding, survey and ticket evidence, SPACE and DevEx metric sets) |
+| 020 | DORA Metrics for Platform Initiatives | 3 + capstone | kubectl, jq (five DORA metrics, quarterly trends, interpretation of claims) |
 
 See [the curriculum map](CURRICULUM.md) for module outcomes. The manifest `astrona.yaml` registers readings, labs and quizzes in teaching order.
 

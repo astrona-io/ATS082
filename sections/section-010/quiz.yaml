@@ -229,3 +229,653 @@ questions:
   correct_option: c
   explanation: The reorganisation is a confounder. Finer data or a comparison group
     is needed to separate the effects.
+- id: ats082-010-m03-q01
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Compute an adoption rate over eligible teams
+  source_readings:
+  - sections/section-010/module-03/course-01-adoption-rate-and-active-use.md
+  prompt: A company has 40 teams. 25 of them are eligible to use the platform and
+    15 of those are onboarded. What is the adoption rate?
+  options:
+  - id: a
+    text: 60 percent.
+    explanation: 'Correct. The adoption rate is onboarded teams divided by eligible
+      teams: 15 divided by 25.'
+  - id: b
+    text: 37.5 percent.
+    explanation: This divides by all 40 teams. Teams that are not eligible do not
+      belong in the denominator.
+  - id: c
+    text: 40 percent.
+    explanation: 40 percent is the share of eligible teams that are not onboarded.
+  - id: d
+    text: 167 percent.
+    explanation: This divides eligible by onboarded. An adoption rate cannot be above
+      100 percent.
+  correct_option: a
+  explanation: The denominator is the eligible teams, which is 25. The onboarded count
+    is 15, so the rate is 60 percent.
+- id: ats082-010-m03-q02
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Separate mandated from voluntary adoption
+  source_readings:
+  - sections/section-010/module-03/course-01-adoption-rate-and-active-use.md
+  prompt: Seven of ten eligible teams adopted the platform. Three of the seven were
+    required to adopt it by a policy. Why does the report show mandated and voluntary
+    adoption separately?
+  options:
+  - id: a
+    text: Mandated teams must be removed from the adoption rate.
+    explanation: They are real users and stay in the rate. The report adds the split
+      next to the rate.
+  - id: b
+    text: Voluntary adoption shows that teams chose the platform, while mandated adoption
+      shows only compliance.
+    explanation: Correct. The two groups answer different questions, and only voluntary
+      adoption is evidence that the platform is valued.
+  - id: c
+    text: Voluntary adoption always has a higher rate.
+    explanation: Nothing guarantees this. The split is shown because the groups mean
+      different things.
+  - id: d
+    text: The split makes the median onboarding time shorter.
+    explanation: The split has no effect on the onboarding time statistic.
+  correct_option: b
+  explanation: A high adoption rate that comes from a mandate says little about value,
+    so the report separates the two groups.
+- id: ats082-010-m03-q03
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Use active use to find teams that stopped using the platform
+  source_readings:
+  - sections/section-010/module-03/course-01-adoption-rate-and-active-use.md
+  prompt: A team was onboarded last year and has made no deployment through the platform
+    for 90 days. Which measure shows this?
+  options:
+  - id: a
+    text: The adoption rate alone.
+    explanation: Adoption counts a team once it is onboarded, so it still counts this
+      team.
+  - id: b
+    text: The mandated share.
+    explanation: The mandated share says why teams adopted. It does not show recent
+      use.
+  - id: c
+    text: An active use rate over a recent window.
+    explanation: Correct. Active use counts onboarded teams that used the platform
+      within a stated recent window.
+  - id: d
+    text: The self-service rate.
+    explanation: The self-service rate compares request routes. It does not show whether
+      a team is active.
+  correct_option: c
+  explanation: Adoption counts onboarding. An active use rate over a window such as
+    90 days shows who still uses the platform.
+- id: ats082-010-m03-q04
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Report onboarding time with unfinished teams
+  source_readings:
+  - sections/section-010/module-03/course-02-onboarding-and-time-to-first-deployment.md
+  prompt: Five teams were onboarded. Days to first deployment are 3, 5, 8, and two
+    teams that have not deployed yet. Which report is honest?
+  options:
+  - id: a
+    text: A median of 5 days, with no note about the other teams.
+    explanation: The value is right for the finished teams, but the report hides that
+      two teams are still waiting.
+  - id: b
+    text: A median of 3 days, counting the unfinished teams as 0 days.
+    explanation: Counting unfinished teams as 0 days makes the result look better
+      than the facts.
+  - id: c
+    text: No report, because two values are missing.
+    explanation: The finished teams give a usable value. The report only has to state
+      the missing ones.
+  - id: d
+    text: A median of 5 days over the three finished teams, with a note that two of
+      five teams have not finished.
+    explanation: Correct. The median of 3, 5 and 8 is 5, and the unfinished teams
+      are stated in the report.
+  correct_option: d
+  explanation: The finished teams give a median of 5. The report must also say that
+    two of five teams are not finished.
+- id: ats082-010-m03-q05
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute a nearest-rank percentile
+  source_readings:
+  - sections/section-010/module-03/course-02-onboarding-and-time-to-first-deployment.md
+  prompt: 'Ten teams finished onboarding in these days, sorted: 2, 3, 4, 5, 6, 6,
+    8, 9, 15, 30. What is the 90th percentile by the nearest-rank method?'
+  options:
+  - id: a
+    text: 15 days.
+    explanation: Correct. The rank is the ceiling of 0.9 times 10, which is 9. The
+      ninth value is 15.
+  - id: b
+    text: 30 days.
+    explanation: 30 is the tenth value, which is the maximum.
+  - id: c
+    text: 9 days.
+    explanation: 9 is the eighth value, not the ninth.
+  - id: d
+    text: 6 days.
+    explanation: 6 is near the median, not the 90th percentile.
+  correct_option: a
+  explanation: Nearest rank takes the value at rank ceiling(0.9 x 10) = 9, which is
+    15.
+- id: ats082-010-m03-q06
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Compute a self-service rate
+  source_readings:
+  - sections/section-010/module-03/course-03-self-service-tickets-and-toil.md
+  prompt: In one month teams made 70 self-service requests and opened 30 manual tickets
+    for the same kinds of request. What is the self-service rate?
+  options:
+  - id: a
+    text: 30 percent.
+    explanation: 30 percent is the share of manual tickets.
+  - id: b
+    text: 70 percent.
+    explanation: 'Correct. The rate is self-service requests divided by all requests:
+      70 divided by 100.'
+  - id: c
+    text: 233 percent.
+    explanation: This divides self-service by manual tickets. A share cannot be above
+      100 percent.
+  - id: d
+    text: 40 percent.
+    explanation: This is the difference between the two counts as a share. It is not
+      the self-service rate.
+  correct_option: b
+  explanation: Self-service requests are 70 of 100 requests, which is 70 percent.
+- id: ats082-010-m03-q07
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Recognise toil
+  source_readings:
+  - sections/section-010/module-03/course-03-self-service-tickets-and-toil.md
+  prompt: Which task is toil for the platform team?
+  options:
+  - id: a
+    text: Designing a new self-service API.
+    explanation: This is engineering work that removes toil. It is not repetitive
+      manual work.
+  - id: b
+    text: Writing a review after an incident.
+    explanation: This needs judgement each time and produces lasting learning.
+  - id: c
+    text: Creating a namespace by hand every time a team opens a ticket for one.
+    explanation: Correct. The task is manual, repetitive, can be automated and grows
+      with the number of teams.
+  - id: d
+    text: Talking with a team about its needs.
+    explanation: This is product work and cannot be automated away.
+  correct_option: c
+  explanation: Toil is manual, repetitive, automatable work that grows with the service.
+    Hand-made namespaces fit the definition.
+- id: ats082-010-m03-q08
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute CSAT from responses
+  source_readings:
+  - sections/section-010/module-03/course-04-the-platform-as-a-product-satisfaction-and-feedback.md
+  prompt: Ten teams were asked to rate the platform from 1 to 5. Eight teams answered.
+    Six of the answers were 4 or 5. What is the CSAT?
+  options:
+  - id: a
+    text: 60 percent.
+    explanation: This divides by all ten teams. The denominator is the answers received,
+      and the response rate is reported next to it.
+  - id: b
+    text: 80 percent.
+    explanation: 80 percent is the response rate, 8 of 10.
+  - id: c
+    text: 6 percent.
+    explanation: 6 is a count of answers, not a percentage.
+  - id: d
+    text: 75 percent.
+    explanation: 'Correct. CSAT is the share of answers that are 4 or 5: 6 divided
+      by 8 answers.'
+  correct_option: d
+  explanation: CSAT divides satisfied answers by all answers. Six of eight is 75 percent,
+    and the report adds a response rate of 80 percent.
+- id: ats082-010-m03-q09
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute a net promoter score
+  source_readings:
+  - sections/section-010/module-03/course-04-the-platform-as-a-product-satisfaction-and-feedback.md
+  prompt: Ten teams answered the question about recommending the platform on a scale
+    from 0 to 10. Four scored 9 or 10, three scored 7 or 8 and three scored 0 to 6.
+    What is the NPS?
+  options:
+  - id: a
+    text: "+10."
+    explanation: 'Correct. NPS is the percentage of promoters (9 or 10) minus the
+      percentage of detractors (0 to 6): 40 minus 30.'
+  - id: b
+    text: "+40."
+    explanation: This is only the percentage of promoters. Detractors must be subtracted.
+  - id: c
+    text: "+30."
+    explanation: This is the percentage of detractors, not the score.
+  - id: d
+    text: "-10."
+    explanation: This subtracts in the wrong direction.
+  correct_option: a
+  explanation: NPS = 40 percent promoters minus 30 percent detractors = +10.
+- id: ats082-010-m03-q10
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Judge a satisfaction claim against the response rate
+  source_readings:
+  - sections/section-010/module-03/course-04-the-platform-as-a-product-satisfaction-and-feedback.md
+  prompt: Three of ten teams answered the survey and all three were positive. A report
+    says "everyone is happy". What is wrong?
+  options:
+  - id: a
+    text: Nothing, because all answers were positive.
+    explanation: The answers cover only three of ten teams.
+  - id: b
+    text: Seven teams are silent, so the claim is not supported and the response rate
+      must be reported.
+    explanation: Correct. A response rate of 30 percent says nothing about the other
+      seven teams.
+  - id: c
+    text: The survey should use a scale of 1 to 10.
+    explanation: The scale is not the problem. The missing answers are.
+  - id: d
+    text: Positive answers must be removed from the report.
+    explanation: Positive answers stay in the report. The claim must match their coverage.
+  correct_option: b
+  explanation: Non-response can hide unhappy teams. The report gives the response
+    rate and limits the claim to the teams that answered.
+- id: ats082-010-m04-q01
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Name the SPACE dimensions
+  source_readings:
+  - sections/section-010/module-04/course-01-why-one-metric-fails-and-the-space-dimensions.md
+  prompt: Which list names the five SPACE dimensions?
+  options:
+  - id: a
+    text: Satisfaction and well-being, performance, activity, communication and collaboration,
+      efficiency and flow.
+    explanation: Correct. These are the five dimensions of the SPACE framework.
+  - id: b
+    text: Speed, price, availability, cost, efficiency.
+    explanation: These are not the SPACE dimensions.
+  - id: c
+    text: Feedback loops, cognitive load, flow state.
+    explanation: These are the three areas of the DevEx framework.
+  - id: d
+    text: Lead time, frequency, recovery time, fail rate, rework rate.
+    explanation: These are the five DORA metrics.
+  correct_option: a
+  explanation: SPACE stands for satisfaction and well-being, performance, activity,
+    communication and collaboration, and efficiency and flow.
+- id: ats082-010-m04-q02
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Explain why one metric is not enough
+  source_readings:
+  - sections/section-010/module-04/course-01-why-one-metric-fails-and-the-space-dimensions.md
+  prompt: Why does the SPACE framework advise against using one metric for developer
+    productivity?
+  options:
+  - id: a
+    text: One metric is more expensive to collect than several.
+    explanation: Cost is not the reason given.
+  - id: b
+    text: Productivity has several dimensions, and one metric misses most of them
+      and is easy to game.
+    explanation: Correct. A set of metrics across dimensions gives a balanced view.
+  - id: c
+    text: Developers dislike being measured at all.
+    explanation: This is not the argument. Satisfaction is one dimension to measure.
+  - id: d
+    text: Only system data is allowed in the framework.
+    explanation: The framework asks for perceptual data as well.
+  correct_option: b
+  explanation: Any single metric covers one view of productivity, so SPACE asks for
+    metrics from several dimensions.
+- id: ats082-010-m04-q03
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Place a metric in a SPACE dimension
+  source_readings:
+  - sections/section-010/module-04/course-01-why-one-metric-fails-and-the-space-dimensions.md
+  prompt: Which metric belongs to the activity dimension?
+  options:
+  - id: a
+    text: A survey score for satisfaction with the tools.
+    explanation: This is a satisfaction metric.
+  - id: b
+    text: The time a pull request waits for its first review.
+    explanation: This is an efficiency and flow metric.
+  - id: c
+    text: The number of pull requests merged each week.
+    explanation: Correct. Activity counts actions or outputs.
+  - id: d
+    text: How well teammates rate the quality of reviews.
+    explanation: This is a communication and collaboration metric.
+  correct_option: c
+  explanation: Counts of actions such as merged pull requests are activity metrics.
+- id: ats082-010-m04-q04
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Name the DevEx areas
+  source_readings:
+  - sections/section-010/module-04/course-02-the-devex-framework-feedback-loops-cognitive-load-and-flow.md
+  prompt: Which list names the three areas of the DevEx framework?
+  options:
+  - id: a
+    text: Satisfaction, performance and activity.
+    explanation: These are three of the five SPACE dimensions.
+  - id: b
+    text: Build, test and deploy.
+    explanation: These are pipeline stages, not the DevEx areas.
+  - id: c
+    text: Speed, cost and risk.
+    explanation: These are not the DevEx areas.
+  - id: d
+    text: Feedback loops, cognitive load and flow state.
+    explanation: Correct. These are the three core areas of developer experience in
+      the framework.
+  correct_option: d
+  explanation: The DevEx framework names feedback loops, cognitive load and flow state.
+- id: ats082-010-m04-q05
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Give a feedback loop measure
+  source_readings:
+  - sections/section-010/module-04/course-02-the-devex-framework-feedback-loops-cognitive-load-and-flow.md
+  prompt: Which measure describes the speed of a feedback loop?
+  options:
+  - id: a
+    text: The time between pushing a change and getting the result of the CI pipeline.
+    explanation: Correct. A feedback loop is the time between an action and its result.
+  - id: b
+    text: The number of developers in a team.
+    explanation: Team size is not a feedback loop measure.
+  - id: c
+    text: The number of repositories.
+    explanation: This counts repositories and says nothing about waiting.
+  - id: d
+    text: The yearly cost of the platform.
+    explanation: Cost does not describe the speed of feedback.
+  correct_option: a
+  explanation: Feedback loop measures time from an action to its result, such as CI
+    result time.
+- id: ats082-010-m04-q06
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Reduce cognitive load with the platform
+  source_readings:
+  - sections/section-010/module-04/course-03-measuring-cognitive-load-and-platform-friction.md
+  prompt: Which platform change most directly lowers the cognitive load of a developer?
+  options:
+  - id: a
+    text: A longer onboarding document with all options.
+    explanation: More options and more text raise the load.
+  - id: b
+    text: A self-service golden path that hides infrastructure details behind a simple
+      request.
+    explanation: Correct. The developer decides less and remembers less.
+  - id: c
+    text: A weekly report of deployments per developer.
+    explanation: This adds measurement and does not reduce the work of understanding
+      systems.
+  - id: d
+    text: A rule that each team builds its own pipeline.
+    explanation: This moves complexity to each team and raises the load.
+  correct_option: b
+  explanation: Cognitive load falls when the platform removes decisions and details
+    that the developer does not need.
+- id: ats082-010-m04-q07
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Tell perceptual and workflow measures apart
+  source_readings:
+  - sections/section-010/module-04/course-03-measuring-cognitive-load-and-platform-friction.md
+  prompt: Which measure is a workflow measure, not a perceptual one?
+  options:
+  - id: a
+    text: A survey score for how hard the deployment process is to understand.
+    explanation: This is a perceptual measure from a survey.
+  - id: b
+    text: A rating of satisfaction with the documentation.
+    explanation: This is a perceptual measure.
+  - id: c
+    text: The build wait time taken from CI logs.
+    explanation: Correct. Workflow measures come from system data.
+  - id: d
+    text: An interview theme about confusing tools.
+    explanation: This is qualitative perceptual evidence.
+  correct_option: c
+  explanation: Workflow measures come from systems. Perceptual measures come from
+    what developers say.
+- id: ats082-010-m04-q08
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Prefer team-level metrics to individual ones
+  source_readings:
+  - sections/section-010/module-04/course-04-building-a-balanced-metric-set.md
+  prompt: Why does a balanced metric set prefer team and system levels to individual
+    output counts?
+  options:
+  - id: a
+    text: Individual data cannot be collected.
+    explanation: It can be collected. The problem is how it is used.
+  - id: b
+    text: Team metrics are always more accurate.
+    explanation: Accuracy depends on the measure. The point is fit and effect on behaviour.
+  - id: c
+    text: Individual metrics are not allowed in any framework.
+    explanation: SPACE allows levels but warns about misuse of individual metrics.
+  - id: d
+    text: Individual output depends on team context, and ranking individuals invites
+      gaming and harms collaboration.
+    explanation: Correct. Team and system levels match how work is actually done.
+  correct_option: d
+  explanation: The framework warns against ranking individuals with output counts,
+    which also pushes people toward gaming.
+- id: ats082-010-m04-q09
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Repair an unbalanced metric set
+  source_readings:
+  - sections/section-010/module-04/course-04-building-a-balanced-metric-set.md
+  prompt: 'A team tracks three metrics: commits, pull requests merged and deployments.
+    What is the main weakness of this set?'
+  options:
+  - id: a
+    text: All three are activity metrics, so the set misses satisfaction, efficiency
+      and perceptual evidence.
+    explanation: Correct. A balanced set has metrics from several dimensions and at
+      least one perceptual measure.
+  - id: b
+    text: There are too many metrics.
+    explanation: Three is not too many. The problem is that they measure the same
+      dimension.
+  - id: c
+    text: Deployments cannot be counted.
+    explanation: Deployments can be counted. They are activity.
+  - id: d
+    text: The metrics are all team-level.
+    explanation: Team level is fine. The dimensions are the issue.
+  correct_option: a
+  explanation: The set covers one dimension. Add metrics from other dimensions and
+    a survey based measure.
+- id: ats082-010-m04-q10
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Find the thinnest dimension
+  source_readings:
+  - sections/section-010/module-04/course-04-building-a-balanced-metric-set.md
+  prompt: 'A catalogue has these team-level metrics by dimension: activity 3, satisfaction
+    2, performance 4, communication 1, efficiency 3. Where should the team add metrics
+    first?'
+  options:
+  - id: a
+    text: Performance.
+    explanation: Performance already has the most metrics.
+  - id: b
+    text: Communication and collaboration.
+    explanation: Correct. It has the fewest metrics, so it is the thinnest dimension.
+  - id: c
+    text: Activity.
+    explanation: Activity has 3 metrics and adding more to it increases the imbalance.
+  - id: d
+    text: Efficiency.
+    explanation: Efficiency has 3 metrics and is not the thinnest.
+  correct_option: b
+  explanation: Count metrics for each dimension and add to the one with the fewest,
+    which is communication and collaboration.
+- id: ats082-010-d01
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute flow efficiency
+  source_readings:
+  - sections/section-010/module-01/course-03-flow-wait-time-and-work-in-progress.md
+  prompt: A request took 40 hours from start to finish. People worked on it for 4
+    hours and it waited for the rest. What is the flow efficiency?
+  options:
+  - id: a
+    text: 10 percent.
+    explanation: 'Correct. Flow efficiency is active time divided by total elapsed
+      time: 4 divided by 40.'
+  - id: b
+    text: 90 percent.
+    explanation: 90 percent is the share of waiting time.
+  - id: c
+    text: 4 percent.
+    explanation: This treats 4 hours as a percentage of 100.
+  - id: d
+    text: 44 percent.
+    explanation: This adds the hours instead of dividing.
+  correct_option: a
+  explanation: Active time over elapsed time is 4 over 40, which is 10 percent.
+- id: ats082-010-d02
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Explain the effect of work in progress
+  source_readings:
+  - sections/section-010/module-01/course-03-flow-wait-time-and-work-in-progress.md
+  prompt: What does a large amount of work in progress usually do to the time each
+    item takes?
+  options:
+  - id: a
+    text: It shortens every item.
+    explanation: Items usually wait longer when many are open.
+  - id: b
+    text: It lengthens the wait of each item, because items queue for the same people.
+    explanation: Correct. More items in progress means more waiting.
+  - id: c
+    text: It has no effect on time.
+    explanation: The queue grows with the amount of open work.
+  - id: d
+    text: It only affects the first item.
+    explanation: All items share the same capacity.
+  correct_option: b
+  explanation: More open items share the same capacity, so each one waits longer.
+- id: ats082-010-d03
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Count wasted time on failed attempts
+  source_readings:
+  - sections/section-010/module-01/course-04-failures-abandonment-and-wasted-time.md
+  prompt: A user spends 30 minutes on an attempt that fails, retries and finishes
+    in 10 minutes. How much time was wasted by the failure?
+  options:
+  - id: a
+    text: 10 minutes.
+    explanation: This is the time of the successful attempt.
+  - id: b
+    text: 0 minutes, because the task was completed.
+    explanation: The completion hides the lost time of the first attempt.
+  - id: c
+    text: 30 minutes, because the first attempt produced no result.
+    explanation: Correct. The user needed 40 minutes in total and 30 of them were
+      lost.
+  - id: d
+    text: 40 minutes.
+    explanation: The successful attempt of 10 minutes produced the result.
+  correct_option: c
+  explanation: The failed attempt cost 30 minutes. The report should show it and not
+    only the 10-minute success.
+- id: ats082-010-d04
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Recognise a leading survey question
+  source_readings:
+  - sections/section-010/module-02/course-03-designing-developer-surveys.md
+  prompt: Which survey question is the least biased?
+  options:
+  - id: a
+    text: Do you agree that our excellent platform makes service creation easy?
+    explanation: The words excellent and easy push the answer.
+  - id: b
+    text: Why do you love the new service template?
+    explanation: The question assumes the person loves it.
+  - id: c
+    text: Do you use the platform and is it fast and reliable?
+    explanation: This asks several things in one question.
+  - id: d
+    text: How easy or hard was it to create a new service on the platform?
+    explanation: Correct. The question is neutral and uses a balanced scale.
+  correct_option: d
+  explanation: A good question is neutral, asks one thing and has a balanced answer
+    scale.
+- id: ats082-010-d05
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Handle non-response bias
+  source_readings:
+  - sections/section-010/module-02/course-03-designing-developer-surveys.md
+  prompt: Only 15 percent of developers answered a satisfaction survey. What must
+    the report do?
+  options:
+  - id: a
+    text: State the response rate and limit the claim to those who answered.
+    explanation: Correct. People who are unhappy often do not answer, so the missing
+      answers matter.
+  - id: b
+    text: Treat the answers as the view of all developers.
+    explanation: The 85 percent who did not answer may think differently.
+  - id: c
+    text: Remove the survey from the report.
+    explanation: The answers are still evidence if their limits are stated.
+  - id: d
+    text: Double the scores to adjust for missing answers.
+    explanation: Scores cannot be corrected this way.
+  correct_option: a
+  explanation: A low response rate limits the claim. The report says who answered.
+- id: ats082-010-d06
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Define triangulation
+  source_readings:
+  - sections/section-010/module-02/course-04-qualitative-evidence-interviews-themes-and-triangulation.md
+  prompt: What is triangulation in developer experience evidence?
+  options:
+  - id: a
+    text: Asking the same survey question three times.
+    explanation: This repeats one source.
+  - id: b
+    text: Comparing evidence from different sources, such as surveys, interviews and
+      system data, to see whether they agree.
+    explanation: Correct. Agreement across sources makes a finding stronger.
+  - id: c
+    text: Using three charts of the same data.
+    explanation: The source is the same, so it is not independent.
+  - id: d
+    text: Averaging three metrics into one score.
+    explanation: Averaging hides differences. Triangulation compares.
+  correct_option: b
+  explanation: Triangulation checks a finding with independent sources.

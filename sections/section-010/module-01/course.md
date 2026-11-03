@@ -14,6 +14,8 @@ This module explains how a platform team measures whether its shared capabilitie
 - Compute a completion rate that counts failed and abandoned attempts.
 - Report the time to complete with the median and the 90th percentile, and say why a mean of completed requests misleads.
 - Break a result down by request class to find where users meet the most friction.
+- Split the time of a request into wait time and work time, compute flow efficiency and relate work in progress to throughput.
+- Compare failed and abandoned requests by count, time and class.
 
 ## Before You Start
 
@@ -23,6 +25,8 @@ You should know what a ConfigMap and a namespace are in Kubernetes. The playgrou
 
 1. Task Outcomes, Populations And Denominators
 2. Time To Complete, Percentiles And Survivorship
-3. Summary
+3. Flow, Wait Time And Work In Progress
+4. Failures, Abandonment And Wasted Time
+5. Summary
 
 <!-- astrona:playground -->

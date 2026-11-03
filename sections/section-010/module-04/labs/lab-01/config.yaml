@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=https://cli.astrona.io/schema/lab-config.schema.json
+#
+# Review A Metric Catalogue With SPACE (LAB). Graded against the live cluster. Built untested.
+apiVersion: astrona.io/v1
+metadata:
+  name: ats-082-lab-010-04
+  docs:
+    prerequisites: prerequisites.md
+    question: question.md
+    solution: solution.md
+
+runtime:
+  type: kind
+  kind:
+    image: kindest/node:v1.35.8
+
+# Starting state: namespace metrics with the ConfigMap metric-catalogue (13 metrics with SPACE dimension, level, measure type and DevEx area) and, in the playground, the ConfigMap team-measurements (three teams). No report exists.
+bootstrap:
+  init:
+    - name: seed-cluster
+      description: Create the namespace and the source data
+      type: file
+      source: bootstrap/01-seed-cluster.sh
+
+# Applied only by `astrona test`: the reference solution.
+testing:
+  init:
+    - name: apply-solution
+      description: Apply the reference solution
+      type: file
+      source: solution/apply.sh
+
+validation:
+  scripts:
+    - name: data-unchanged
+      description: "The source ConfigMap metric-catalogue is unchanged"
+      type: file
+      source: validation/validate-metric-catalogue-data-unchanged.sh
+      hint: "Do not edit the ConfigMap metric-catalogue. Compute from it and write your results in a new ConfigMap."
+    - name: catalogue-size
+      description: "metrics-total and individual-level-count are recorded"
+      type: file
+      source: validation/validate-catalogue-size.sh
+      hint: "Count all records, then the records with level individual."
+    - name: team-metrics-per-dimension
+      description: "Team-level metrics are counted per SPACE dimension"
+      type: file
+      source: validation/validate-team-metrics-per-dimension.sh
+      hint: "Drop individual-level metrics first, then count the records of each dimension."
+    - name: thinnest-dimension
+      description: "thinnest-dimension names the team-level dimension with the fewest metrics"
+      type: file
+      source: validation/validate-thinnest-dimension.sh
+      hint: "Group the team-level metrics by dimension and sort by count. The lowest count is unique."
+    - name: measure-types
+      description: "perceptual-team-count and workflow-team-count are recorded"
+      type: file
+      source: validation/validate-measure-types.sh
+      hint: "Count team-level metrics by the field measure."
+    - name: devex-areas
+      description: "Team-level metrics are counted per DevEx area"
+      type: file
+      source: validation/validate-devex-areas.sh
+      hint: "Count team-level records by the field devex. Use the values feedback loops, cognitive load and flow state."
+teardown:
+  keepCluster: false

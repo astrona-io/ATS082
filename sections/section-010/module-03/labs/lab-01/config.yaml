@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=https://cli.astrona.io/schema/lab-config.schema.json
+#
+# Report Platform Adoption And Onboarding (LAB). Graded against the live cluster. Built untested.
+apiVersion: astrona.io/v1
+metadata:
+  name: ats-082-lab-010-03
+  docs:
+    prerequisites: prerequisites.md
+    question: question.md
+    solution: solution.md
+
+runtime:
+  type: kind
+  kind:
+    image: kindest/node:v1.35.8
+
+# Starting state: namespace metrics with the ConfigMap team-adoption (12 teams, 10 of them eligible, with onboarding, ticket and survey fields). No report exists.
+bootstrap:
+  init:
+    - name: seed-cluster
+      description: Create the namespace and the source data
+      type: file
+      source: bootstrap/01-seed-cluster.sh
+
+# Applied only by `astrona test`: the reference solution.
+testing:
+  init:
+    - name: apply-solution
+      description: Apply the reference solution
+      type: file
+      source: solution/apply.sh
+
+validation:
+  scripts:
+    - name: data-unchanged
+      description: "The source ConfigMap team-adoption is unchanged"
+      type: file
+      source: validation/validate-team-adoption-data-unchanged.sh
+      hint: "Do not edit the ConfigMap team-adoption. Compute from it and write your results in a new ConfigMap."
+    - name: adoption-rate
+      description: "eligible-teams, adopted-teams and adoption-rate-percent are recorded"
+      type: file
+      source: validation/validate-adoption-rate.sh
+      hint: "Count only eligible teams in the denominator. Adopted means onboarded."
+    - name: mandated-and-voluntary
+      description: "mandated-adopted-teams and voluntary-adopted-teams are recorded"
+      type: file
+      source: validation/validate-mandated-and-voluntary.sh
+      hint: "Split the onboarded teams by the field mandated."
+    - name: onboarding-time
+      description: "The median and p90 of days to first deployment are recorded"
+      type: file
+      source: validation/validate-onboarding-time.sh
+      hint: "Use onboarded teams only. Nearest rank: the value at position ceil(p x n) of the sorted days."
+    - name: self-service-rate
+      description: "self-service-rate-percent is recorded"
+      type: file
+      source: validation/validate-self-service-rate.sh
+      hint: "Self-service requests divided by self-service requests plus manual tickets, over all teams, times 100."
+    - name: satisfaction
+      description: "csat-satisfied-percent and nps are recorded"
+      type: file
+      source: validation/validate-satisfaction.sh
+      hint: "Only teams with a score answered. CSAT satisfied is a score of 4 or 5. NPS is promoters (9-10) minus detractors (0-6), over respondents, times 100."
+teardown:
+  keepCluster: false

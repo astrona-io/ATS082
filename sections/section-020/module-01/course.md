@@ -14,6 +14,8 @@ This module explains the five software delivery metrics of the DORA research pro
 - List the events and timestamps that each metric needs.
 - Compute the five metrics from deployment events with `jq`, with a stated statistic and a stated window.
 - Explain why a median is preferred to a mean for durations and why the service is the unit of measurement.
+- State the window, the statistic, the unit and the count for every metric value, and handle empty windows and even counts.
+- Write down definitions of deployment, failed deployment, rework and recovery start and end.
 
 ## Before You Start
 
@@ -23,6 +25,8 @@ You should know what a deployment is and what a ConfigMap is in Kubernetes. The 
 
 1. The Five Delivery Metrics
 2. Computing The Metrics From Deployment Events
-3. Summary
+3. Windows, Medians And Edge Cases In Deployment Data
+4. Defining Deployment, Failure And Recovery In Deployment Events
+5. Summary
 
 <!-- astrona:playground -->

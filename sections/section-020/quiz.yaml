@@ -269,3 +269,392 @@ questions:
       describe.
   correct_option: a
   explanation: A measure that becomes a target stops describing delivery.
+- id: ats082-020-m03-q01
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Choose data sources for the metrics
+  source_readings:
+  - sections/section-020/module-03/course-01-data-sources-and-consistent-definitions.md
+  prompt: Which pair of sources gives change lead time?
+  options:
+  - id: a
+    text: Commit timestamps from version control and deployment timestamps from the
+      delivery system.
+    explanation: Correct. Lead time runs from the commit to the production deployment.
+  - id: b
+    text: Survey answers and ticket counts.
+    explanation: These do not give timestamps of a change.
+  - id: c
+    text: Cloud billing and CPU usage.
+    explanation: These describe cost and load, not the path of a change.
+  - id: d
+    text: Wiki page views and chat messages.
+    explanation: These do not mark a commit or a deployment.
+  correct_option: a
+  explanation: Lead time needs the commit time and the deployment time of each change.
+- id: ats082-020-m03-q02
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Keep definitions consistent across services
+  source_readings:
+  - sections/section-020/module-03/course-01-data-sources-and-consistent-definitions.md
+  prompt: Team A counts deployments to the staging environment, and team B counts
+    only production. Why can the deployment frequency of the two teams not be compared?
+  options:
+  - id: a
+    text: Staging deployments are always faster.
+    explanation: Speed is not the issue. The definitions differ.
+  - id: b
+    text: The two teams use different definitions of a deployment.
+    explanation: Correct. The platform team writes one definition and applies it to
+      all services.
+  - id: c
+    text: Frequency can only be computed for one team.
+    explanation: It can be computed for each service with the same definition.
+  - id: d
+    text: Team B has fewer developers.
+    explanation: Team size does not make the numbers non-comparable.
+  correct_option: b
+  explanation: A metric is comparable only when the definition is the same, so one
+    written definition is applied everywhere.
+- id: ats082-020-m03-q03
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Read a lead time trend
+  source_readings:
+  - sections/section-020/module-03/course-02-trends-over-time-and-performance-profiles.md
+  prompt: The median change lead time in three quarters was 65, 37 and 22.5 hours.
+    What does the trend show?
+  options:
+  - id: a
+    text: Lead time got worse because the numbers are smaller.
+    explanation: Smaller is better for a duration.
+  - id: b
+    text: The trend cannot be read without a target.
+    explanation: The direction can be read from the values.
+  - id: c
+    text: Lead time improved because the value fell each quarter.
+    explanation: Correct. A lower lead time is better.
+  - id: d
+    text: Lead time did not change.
+    explanation: The values are different in every quarter.
+  correct_option: c
+  explanation: Each quarter has a lower median lead time, so delivery got faster.
+- id: ats082-020-m03-q04
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Read a fail rate trend
+  source_readings:
+  - sections/section-020/module-03/course-02-trends-over-time-and-performance-profiles.md
+  prompt: The change fail rate was 12.5 percent in one quarter and 20 percent in the
+    next, while deployments rose from 8 to 10. What is the verdict for the fail rate?
+  options:
+  - id: a
+    text: It got better, because more deployments were made.
+    explanation: More deployments are a throughput gain. The fail rate is a separate
+      metric.
+  - id: b
+    text: It cannot be judged, because the counts are small.
+    explanation: Small counts call for care. The report still states the direction
+      and the counts.
+  - id: c
+    text: It did not change.
+    explanation: 12.5 and 20 are different values.
+  - id: d
+    text: It got worse, because the rate rose.
+    explanation: Correct. A higher fail rate is worse, and more deployments do not
+      change that verdict.
+  correct_option: d
+  explanation: Each metric has its own verdict. The fail rate rose, so it got worse.
+- id: ats082-020-m03-q05
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Read throughput and instability together
+  source_readings:
+  - sections/section-020/module-03/course-02-trends-over-time-and-performance-profiles.md
+  prompt: Deployments per quarter rose from 6 to 8 to 10 and the change fail rate
+    rose from 12.5 to 20 percent in the last quarter. What is the right reading?
+  options:
+  - id: a
+    text: Throughput improved, but stability got worse in the last quarter, so the
+      report states both.
+    explanation: Correct. A gain in one group does not cancel a loss in the other.
+  - id: b
+    text: Delivery improved overall.
+    explanation: This ignores the worse fail rate.
+  - id: c
+    text: Delivery got worse overall.
+    explanation: This ignores the higher throughput.
+  - id: d
+    text: Only deployments per quarter matter.
+    explanation: Instability metrics are part of the model.
+  correct_option: a
+  explanation: Throughput and instability are read together, and a mixed result is
+    reported as mixed.
+- id: ats082-020-m03-q06
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Treat small counts with care
+  source_readings:
+  - sections/section-020/module-03/course-02-trends-over-time-and-performance-profiles.md
+  prompt: A quarter has 6 deployments and 2 failed. What should the report show next
+    to the change fail rate of 33.33 percent?
+  options:
+  - id: a
+    text: Nothing, because the rate is exact.
+    explanation: The rate is exact, but it can mislead without the counts.
+  - id: b
+    text: The counts, because one more or one fewer failure moves the rate by about
+      17 points.
+    explanation: Correct. With a small count the rate is fragile.
+  - id: c
+    text: A mean of the fail rates of other services.
+    explanation: Services are reported separately.
+  - id: d
+    text: Only the failures.
+    explanation: The deployments in the denominator are needed too.
+  correct_option: b
+  explanation: Show 2 of 6 so the reader sees that the rate is based on few events.
+- id: ats082-020-m03-q07
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Use a performance profile properly
+  source_readings:
+  - sections/section-020/module-03/course-02-trends-over-time-and-performance-profiles.md
+  prompt: What is a good use of a performance profile that groups services by their
+    metric values?
+  options:
+  - id: a
+    text: To rank teams and reward the top ones.
+    explanation: Ranking makes the metrics a target, which invites gaming.
+  - id: b
+    text: To replace the metrics.
+    explanation: The profile is built from the metrics.
+  - id: c
+    text: To see where a service stands and decide what to improve first.
+    explanation: Correct. The profile supports decisions about improvement.
+  - id: d
+    text: To set the same numeric target for every team.
+    explanation: Services differ, so the same target does not fit.
+  correct_option: c
+  explanation: Profiles help to choose the next improvement. They are not a league
+    table.
+- id: ats082-020-m03-q08
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Find the constraint
+  source_readings:
+  - sections/section-020/module-03/course-03-finding-the-constraint-and-improving-it-with-the-platform.md
+  prompt: Change lead time is long. Most of it is a three-day wait for a manual approval,
+    and the build takes 4 minutes. Where should the platform team act first?
+  options:
+  - id: a
+    text: On the build time, to save a few minutes.
+    explanation: This step is not the constraint.
+  - id: b
+    text: On the number of developers.
+    explanation: This does not address the wait.
+  - id: c
+    text: On the survey wording.
+    explanation: This does not change the lead time.
+  - id: d
+    text: On the manual approval wait.
+    explanation: Correct. The constraint is the step that takes most of the time.
+  correct_option: d
+  explanation: Improving a step that is not the constraint hardly changes the total.
+    The approval wait is the constraint.
+- id: ats082-020-m03-q09
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Link a platform capability to a metric
+  source_readings:
+  - sections/section-020/module-03/course-03-finding-the-constraint-and-improving-it-with-the-platform.md
+  prompt: Which platform capability most directly lowers the change fail rate?
+  options:
+  - id: a
+    text: Automated tests and progressive rollout with automatic rollback in the pipeline.
+    explanation: Correct. They find problems before most users see them.
+  - id: b
+    text: A weekly status meeting.
+    explanation: A meeting does not stop a bad change.
+  - id: c
+    text: A longer approval chain.
+    explanation: This adds waiting and does not remove failures.
+  - id: d
+    text: A larger dashboard.
+    explanation: A dashboard shows results and does not change them.
+  correct_option: a
+  explanation: Automated tests and progressive delivery act before and during the
+    rollout, which reduces failed deployments.
+- id: ats082-020-m03-q10
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Use DORA metrics in a healthy way
+  source_readings:
+  - sections/section-020/module-03/course-04-healthy-use-of-dora-metrics.md
+  prompt: Which practice keeps DORA metrics healthy?
+  options:
+  - id: a
+    text: Rank all services in a league table.
+    explanation: Rankings turn the metrics into targets.
+  - id: b
+    text: Read the trend of each service, pair throughput with instability and use
+      the numbers to start a conversation.
+    explanation: Correct. This keeps the metrics a learning tool.
+  - id: c
+    text: Tie the numbers to team bonuses.
+    explanation: This causes gaming.
+  - id: d
+    text: Let teams enter their own values by hand.
+    explanation: Manual entry allows edits. Data should come from the pipeline.
+  correct_option: b
+  explanation: Healthy use means trends, paired metrics, automatic data and conversation.
+- id: ats082-020-d01
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute deployment frequency for a window
+  source_readings:
+  - sections/section-020/module-01/course-03-windows-medians-and-edge-cases-in-deployment-data.md
+  prompt: A service has 20 deployments from 5 October to 14 October, both days included.
+    What is the deployment frequency?
+  options:
+  - id: a
+    text: 2 deployments per day, counting 10 days.
+    explanation: Correct. Both end days are included, so the window has 10 days.
+  - id: b
+    text: 2.2 deployments per day.
+    explanation: This counts 9 days, which leaves out one end day.
+  - id: c
+    text: 20 deployments per day.
+    explanation: This is the total count, not a rate.
+  - id: d
+    text: 0.5 deployments per day.
+    explanation: This divides days by deployments.
+  correct_option: a
+  explanation: Twenty deployments over ten days is 2 per day, and the report states
+    how days are counted.
+- id: ats082-020-d02
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute a median of an even count
+  source_readings:
+  - sections/section-020/module-01/course-03-windows-medians-and-edge-cases-in-deployment-data.md
+  prompt: Four lead times in hours are 2, 4, 6 and 8. What is the median?
+  options:
+  - id: a
+    text: 4 hours.
+    explanation: This takes only the lower middle value.
+  - id: b
+    text: 5 hours.
+    explanation: 'Correct. With an even count the median is the average of the two
+      middle values: 4 and 6.'
+  - id: c
+    text: 6 hours.
+    explanation: This takes only the upper middle value.
+  - id: d
+    text: 20 hours.
+    explanation: This is the sum, not the median.
+  correct_option: b
+  explanation: The two middle values are 4 and 6, and their average is 5.
+- id: ats082-020-d03
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute recovery time over failed deployments only
+  source_readings:
+  - sections/section-020/module-01/course-04-defining-deployment-failure-and-recovery.md
+  prompt: Five deployments failed, with recovery times of 20, 35, 50, 90 and 300 minutes.
+    The other 15 deployments did not fail. What is the median recovery time?
+  options:
+  - id: a
+    text: The mean of 99 minutes.
+    explanation: A mean is pulled up by the 300 minutes. The median is the statistic
+      in the lessons.
+  - id: b
+    text: 0 minutes, because most deployments did not fail.
+    explanation: Healthy deployments have no recovery time and are not part of the
+      calculation.
+  - id: c
+    text: 50 minutes.
+    explanation: Correct. Only failed deployments have a recovery time, and the middle
+      of the five sorted values is 50.
+  - id: d
+    text: 90 minutes.
+    explanation: 90 is the fourth value, not the middle.
+  correct_option: c
+  explanation: Sort the five values and take the third, which is 50.
+- id: ats082-020-d04
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Keep failure and rework separate
+  source_readings:
+  - sections/section-020/module-01/course-04-defining-deployment-failure-and-recovery.md
+  prompt: Five deployments needed an intervention and two others were followed by
+    unplanned fixes. How many deployments count toward the change fail rate?
+  options:
+  - id: a
+    text: Seven, because both sets count as failures.
+    explanation: The rework rate is its own metric.
+  - id: b
+    text: Two, because only fixes count.
+    explanation: Interventions mark failed deployments.
+  - id: c
+    text: Zero, because no incident was recorded.
+    explanation: The five interventions define the failures.
+  - id: d
+    text: Five, because rework is a separate metric.
+    explanation: Correct. The two sets are counted separately.
+  correct_option: d
+  explanation: The change fail rate counts deployments that needed intervention. The
+    rework rate counts the others separately.
+- id: ats082-020-d05
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Recognise gaming of deployment frequency
+  source_readings:
+  - sections/section-020/module-02/course-03-gaming-and-healthy-use-of-delivery-metrics.md
+  prompt: A team doubles its deployments per week by splitting each change in two.
+    Nothing else changes. What does the metric show?
+  options:
+  - id: a
+    text: A gain in frequency without more value, which paired metrics and the records
+      can reveal.
+    explanation: Correct. This is what Goodhart's law predicts for a metric used as
+      a target.
+  - id: b
+    text: A real doubling of delivery.
+    explanation: The same work was only split.
+  - id: c
+    text: A fall in lead time.
+    explanation: Splitting does not make the work faster.
+  - id: d
+    text: A fall in the change fail rate.
+    explanation: There is no reason for it to fall.
+  correct_option: a
+  explanation: Splitting changes the count but not the value delivered, so the number
+    gains and reality does not.
+- id: ats082-020-d06
+  type: single_choice
+  difficulty: advanced
+  learning_objective: Report a mixed result per service
+  source_readings:
+  - sections/section-020/module-02/course-04-throughput-and-instability-trade-offs-in-platform-initiatives.md
+  prompt: After a pipeline change, service A has lead time 48 to 8 hours and fail
+    rate 10 to 20 percent. Service B has lead time 24 to 6 hours and fail rate 15
+    to 10 percent. How should the report present the result?
+  options:
+  - id: a
+    text: One blended lead time for both services.
+    explanation: The blend of 36 to 7 hours hides that A became less stable.
+  - id: b
+    text: 'Per service: B improved on both groups, and A got faster but less stable.'
+    explanation: Correct. A blended average would hide the failure rate rise of service
+      A.
+  - id: c
+    text: Only the lead time, because it improved for both.
+    explanation: This leaves out the fail rate that got worse for A.
+  - id: d
+    text: Remove the pipeline from service A.
+    explanation: The data points to a quality problem to investigate, not to removal.
+  correct_option: b
+  explanation: Each service gets its own statement of what improved, what worsened
+    and what is unknown.

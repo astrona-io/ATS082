@@ -1,4 +1,4 @@
-# Final domain knowledge check across both sections.
+# Final domain knowledge check across all sections.
 ---
 schema_version: 1
 kind: question_bank
@@ -260,3 +260,348 @@ questions:
     explanation: The data does not support a statement of no effect either.
   correct_option: a
   explanation: It states what the data shows and what it does not show, per service.
+- id: ats082-final-q11
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Compute an adoption rate over eligible teams
+  source_readings:
+  - sections/section-010/module-03/course-01-adoption-rate-and-active-use.md
+  prompt: A company has 40 teams. 25 of them are eligible to use the platform and
+    15 of those are onboarded. What is the adoption rate?
+  options:
+  - id: a
+    text: 60 percent.
+    explanation: 'Correct. The adoption rate is onboarded teams divided by eligible
+      teams: 15 divided by 25.'
+  - id: b
+    text: 37.5 percent.
+    explanation: This divides by all 40 teams. Teams that are not eligible do not
+      belong in the denominator.
+  - id: c
+    text: 40 percent.
+    explanation: 40 percent is the share of eligible teams that are not onboarded.
+  - id: d
+    text: 167 percent.
+    explanation: This divides eligible by onboarded. An adoption rate cannot be above
+      100 percent.
+  correct_option: a
+  explanation: The denominator is the eligible teams, which is 25. The onboarded count
+    is 15, so the rate is 60 percent.
+- id: ats082-final-q12
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute a nearest-rank percentile
+  source_readings:
+  - sections/section-010/module-03/course-02-onboarding-and-time-to-first-deployment.md
+  prompt: 'Ten teams finished onboarding in these days, sorted: 2, 3, 4, 5, 6, 6,
+    8, 9, 15, 30. What is the 90th percentile by the nearest-rank method?'
+  options:
+  - id: a
+    text: 15 days.
+    explanation: Correct. The rank is the ceiling of 0.9 times 10, which is 9. The
+      ninth value is 15.
+  - id: b
+    text: 30 days.
+    explanation: 30 is the tenth value, which is the maximum.
+  - id: c
+    text: 9 days.
+    explanation: 9 is the eighth value, not the ninth.
+  - id: d
+    text: 6 days.
+    explanation: 6 is near the median, not the 90th percentile.
+  correct_option: a
+  explanation: Nearest rank takes the value at rank ceiling(0.9 x 10) = 9, which is
+    15.
+- id: ats082-final-q13
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute CSAT from responses
+  source_readings:
+  - sections/section-010/module-03/course-04-the-platform-as-a-product-satisfaction-and-feedback.md
+  prompt: Ten teams were asked to rate the platform from 1 to 5. Eight teams answered.
+    Six of the answers were 4 or 5. What is the CSAT?
+  options:
+  - id: a
+    text: 60 percent.
+    explanation: This divides by all ten teams. The denominator is the answers received,
+      and the response rate is reported next to it.
+  - id: b
+    text: 80 percent.
+    explanation: 80 percent is the response rate, 8 of 10.
+  - id: c
+    text: 6 percent.
+    explanation: 6 is a count of answers, not a percentage.
+  - id: d
+    text: 75 percent.
+    explanation: 'Correct. CSAT is the share of answers that are 4 or 5: 6 divided
+      by 8 answers.'
+  correct_option: d
+  explanation: CSAT divides satisfied answers by all answers. Six of eight is 75 percent,
+    and the report adds a response rate of 80 percent.
+- id: ats082-final-q14
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Explain why one metric is not enough
+  source_readings:
+  - sections/section-010/module-04/course-01-why-one-metric-fails-and-the-space-dimensions.md
+  prompt: Why does the SPACE framework advise against using one metric for developer
+    productivity?
+  options:
+  - id: a
+    text: One metric is more expensive to collect than several.
+    explanation: Cost is not the reason given.
+  - id: b
+    text: Productivity has several dimensions, and one metric misses most of them
+      and is easy to game.
+    explanation: Correct. A set of metrics across dimensions gives a balanced view.
+  - id: c
+    text: Developers dislike being measured at all.
+    explanation: This is not the argument. Satisfaction is one dimension to measure.
+  - id: d
+    text: Only system data is allowed in the framework.
+    explanation: The framework asks for perceptual data as well.
+  correct_option: b
+  explanation: Any single metric covers one view of productivity, so SPACE asks for
+    metrics from several dimensions.
+- id: ats082-final-q15
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Name the DevEx areas
+  source_readings:
+  - sections/section-010/module-04/course-02-the-devex-framework-feedback-loops-cognitive-load-and-flow.md
+  prompt: Which list names the three areas of the DevEx framework?
+  options:
+  - id: a
+    text: Satisfaction, performance and activity.
+    explanation: These are three of the five SPACE dimensions.
+  - id: b
+    text: Build, test and deploy.
+    explanation: These are pipeline stages, not the DevEx areas.
+  - id: c
+    text: Speed, cost and risk.
+    explanation: These are not the DevEx areas.
+  - id: d
+    text: Feedback loops, cognitive load and flow state.
+    explanation: Correct. These are the three core areas of developer experience in
+      the framework.
+  correct_option: d
+  explanation: The DevEx framework names feedback loops, cognitive load and flow state.
+- id: ats082-final-q16
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Repair an unbalanced metric set
+  source_readings:
+  - sections/section-010/module-04/course-04-building-a-balanced-metric-set.md
+  prompt: 'A team tracks three metrics: commits, pull requests merged and deployments.
+    What is the main weakness of this set?'
+  options:
+  - id: a
+    text: All three are activity metrics, so the set misses satisfaction, efficiency
+      and perceptual evidence.
+    explanation: Correct. A balanced set has metrics from several dimensions and at
+      least one perceptual measure.
+  - id: b
+    text: There are too many metrics.
+    explanation: Three is not too many. The problem is that they measure the same
+      dimension.
+  - id: c
+    text: Deployments cannot be counted.
+    explanation: Deployments can be counted. They are activity.
+  - id: d
+    text: The metrics are all team-level.
+    explanation: Team level is fine. The dimensions are the issue.
+  correct_option: a
+  explanation: The set covers one dimension. Add metrics from other dimensions and
+    a survey based measure.
+- id: ats082-final-q17
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute flow efficiency
+  source_readings:
+  - sections/section-010/module-01/course-03-flow-wait-time-and-work-in-progress.md
+  prompt: A request took 40 hours from start to finish. People worked on it for 4
+    hours and it waited for the rest. What is the flow efficiency?
+  options:
+  - id: a
+    text: 10 percent.
+    explanation: 'Correct. Flow efficiency is active time divided by total elapsed
+      time: 4 divided by 40.'
+  - id: b
+    text: 90 percent.
+    explanation: 90 percent is the share of waiting time.
+  - id: c
+    text: 4 percent.
+    explanation: This treats 4 hours as a percentage of 100.
+  - id: d
+    text: 44 percent.
+    explanation: This adds the hours instead of dividing.
+  correct_option: a
+  explanation: Active time over elapsed time is 4 over 40, which is 10 percent.
+- id: ats082-final-q18
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Handle non-response bias
+  source_readings:
+  - sections/section-010/module-02/course-03-designing-developer-surveys.md
+  prompt: Only 15 percent of developers answered a satisfaction survey. What must
+    the report do?
+  options:
+  - id: a
+    text: State the response rate and limit the claim to those who answered.
+    explanation: Correct. People who are unhappy often do not answer, so the missing
+      answers matter.
+  - id: b
+    text: Treat the answers as the view of all developers.
+    explanation: The 85 percent who did not answer may think differently.
+  - id: c
+    text: Remove the survey from the report.
+    explanation: The answers are still evidence if their limits are stated.
+  - id: d
+    text: Double the scores to adjust for missing answers.
+    explanation: Scores cannot be corrected this way.
+  correct_option: a
+  explanation: A low response rate limits the claim. The report says who answered.
+- id: ats082-final-q19
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Read a lead time trend
+  source_readings:
+  - sections/section-020/module-03/course-02-trends-over-time-and-performance-profiles.md
+  prompt: The median change lead time in three quarters was 65, 37 and 22.5 hours.
+    What does the trend show?
+  options:
+  - id: a
+    text: Lead time got worse because the numbers are smaller.
+    explanation: Smaller is better for a duration.
+  - id: b
+    text: The trend cannot be read without a target.
+    explanation: The direction can be read from the values.
+  - id: c
+    text: Lead time improved because the value fell each quarter.
+    explanation: Correct. A lower lead time is better.
+  - id: d
+    text: Lead time did not change.
+    explanation: The values are different in every quarter.
+  correct_option: c
+  explanation: Each quarter has a lower median lead time, so delivery got faster.
+- id: ats082-final-q20
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Read throughput and instability together
+  source_readings:
+  - sections/section-020/module-03/course-02-trends-over-time-and-performance-profiles.md
+  prompt: Deployments per quarter rose from 6 to 8 to 10 and the change fail rate
+    rose from 12.5 to 20 percent in the last quarter. What is the right reading?
+  options:
+  - id: a
+    text: Throughput improved, but stability got worse in the last quarter, so the
+      report states both.
+    explanation: Correct. A gain in one group does not cancel a loss in the other.
+  - id: b
+    text: Delivery improved overall.
+    explanation: This ignores the worse fail rate.
+  - id: c
+    text: Delivery got worse overall.
+    explanation: This ignores the higher throughput.
+  - id: d
+    text: Only deployments per quarter matter.
+    explanation: Instability metrics are part of the model.
+  correct_option: a
+  explanation: Throughput and instability are read together, and a mixed result is
+    reported as mixed.
+- id: ats082-final-q21
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Use a performance profile properly
+  source_readings:
+  - sections/section-020/module-03/course-02-trends-over-time-and-performance-profiles.md
+  prompt: What is a good use of a performance profile that groups services by their
+    metric values?
+  options:
+  - id: a
+    text: To rank teams and reward the top ones.
+    explanation: Ranking makes the metrics a target, which invites gaming.
+  - id: b
+    text: To replace the metrics.
+    explanation: The profile is built from the metrics.
+  - id: c
+    text: To see where a service stands and decide what to improve first.
+    explanation: Correct. The profile supports decisions about improvement.
+  - id: d
+    text: To set the same numeric target for every team.
+    explanation: Services differ, so the same target does not fit.
+  correct_option: c
+  explanation: Profiles help to choose the next improvement. They are not a league
+    table.
+- id: ats082-final-q22
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Use DORA metrics in a healthy way
+  source_readings:
+  - sections/section-020/module-03/course-04-healthy-use-of-dora-metrics.md
+  prompt: Which practice keeps DORA metrics healthy?
+  options:
+  - id: a
+    text: Rank all services in a league table.
+    explanation: Rankings turn the metrics into targets.
+  - id: b
+    text: Read the trend of each service, pair throughput with instability and use
+      the numbers to start a conversation.
+    explanation: Correct. This keeps the metrics a learning tool.
+  - id: c
+    text: Tie the numbers to team bonuses.
+    explanation: This causes gaming.
+  - id: d
+    text: Let teams enter their own values by hand.
+    explanation: Manual entry allows edits. Data should come from the pipeline.
+  correct_option: b
+  explanation: Healthy use means trends, paired metrics, automatic data and conversation.
+- id: ats082-final-q23
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute a median of an even count
+  source_readings:
+  - sections/section-020/module-01/course-03-windows-medians-and-edge-cases-in-deployment-data.md
+  prompt: Four lead times in hours are 2, 4, 6 and 8. What is the median?
+  options:
+  - id: a
+    text: 4 hours.
+    explanation: This takes only the lower middle value.
+  - id: b
+    text: 5 hours.
+    explanation: 'Correct. With an even count the median is the average of the two
+      middle values: 4 and 6.'
+  - id: c
+    text: 6 hours.
+    explanation: This takes only the upper middle value.
+  - id: d
+    text: 20 hours.
+    explanation: This is the sum, not the median.
+  correct_option: b
+  explanation: The two middle values are 4 and 6, and their average is 5.
+- id: ats082-final-q24
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Recognise gaming of deployment frequency
+  source_readings:
+  - sections/section-020/module-02/course-03-gaming-and-healthy-use-of-delivery-metrics.md
+  prompt: A team doubles its deployments per week by splitting each change in two.
+    Nothing else changes. What does the metric show?
+  options:
+  - id: a
+    text: A gain in frequency without more value, which paired metrics and the records
+      can reveal.
+    explanation: Correct. This is what Goodhart's law predicts for a metric used as
+      a target.
+  - id: b
+    text: A real doubling of delivery.
+    explanation: The same work was only split.
+  - id: c
+    text: A fall in lead time.
+    explanation: Splitting does not make the work faster.
+  - id: d
+    text: A fall in the change fail rate.
+    explanation: There is no reason for it to fall.
+  correct_option: a
+  explanation: Splitting changes the count but not the value delivered, so the number
+    gains and reality does not.

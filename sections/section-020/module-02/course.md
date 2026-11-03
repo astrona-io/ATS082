@@ -24,6 +24,8 @@ You should know the five metrics and how they are computed. The playground holds
 
 1. From Four Keys To Five Metrics
 2. Service Scope, Causal Limits And Platform Initiatives
-3. Summary
+3. Gaming And Healthy Use Of Delivery Metrics
+4. Throughput And Instability Trade-Offs In Platform Initiatives
+5. Summary
 
 <!-- astrona:playground -->

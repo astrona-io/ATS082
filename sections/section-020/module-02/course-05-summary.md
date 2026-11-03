@@ -15,6 +15,10 @@ For the three services in this module both pipeline services improved lead time 
 
 A metric used as a target is gamed, which is Goodhart's law. Delivery metrics show a team where to look, and they are not a ranking. Every platform change is paired with a check on the other group of metrics.
 
+Every delivery metric has a cheap way to improve the number without improving delivery, such as splitting a change into many deployments or leaving failures unrecorded. The protection is to avoid targets and rankings, to collect data automatically, to read throughput and instability together and to look at the records behind a large change. In the example data, `scout-api` raised deployments per week from 2 to 10 and its failed deployments per week rose from 0.2 to 2.
+
+A platform initiative gives different results in different services. The report classifies each service by throughput and instability and avoids a blended average, such as a fall from 36 to 7 hours in lead time that combines a service that got less stable with one that improved on every measure. The follow-up action differs: study and spread the success, fix quality capabilities where speed rose and stability fell, and ask the team why when nothing changed.
+
 Key facts:
 
 - Five metrics: lead time, frequency, recovery time, fail rate, rework rate.
@@ -22,5 +26,7 @@ Key facts:
 - Report each service separately and never one blended score.
 - A comparison service helps and does not prove a cause.
 - Check the instability group whenever throughput rises.
+- Classify each service by throughput and instability, never one blended average.
+- Collect data automatically and do not tie metrics to pay or ranking.
 
 <!-- astrona:playground:destroy -->

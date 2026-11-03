@@ -15,11 +15,17 @@ A measure that becomes a target is gamed. Ranking people by an activity count re
 
 A before-and-after comparison shows that numbers differ. Another change in the same period, called a confounder, can produce the same effect, and the comparison cannot separate them without finer data or a comparison group. A report states the evidence, the limits and the changes it could not separate.
 
+A survey asks one concrete question at a time, keeps the same scale between rounds and reports the distribution, the number of answers and the response rate. The answers describe the people who answered, so the report names who is missing, and results for small groups are not shown.
+
+Qualitative evidence explains the numbers. Comments are grouped into themes, and a theme count shows how often a topic came up in the answers, not how many users have the problem. Interviews add depth. Triangulation checks a conclusion against several kinds of evidence, which makes a story stronger but does not prove a cause.
+
 Key facts:
 
 - A ticket count falls when users give up, so read it with the completion rate.
 - A rate needs a denominator.
 - A confounder is another change in the same period that could explain the result.
 - A metric used as a target stops describing what it was meant to describe.
+- A survey report states the distribution, the answers and the response rate.
+- A theme count is a share of the answers, not a share of the users.
 
 <!-- astrona:playground:destroy -->
