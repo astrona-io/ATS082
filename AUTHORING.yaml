@@ -1,5 +1,8 @@
+# Course authoring record. See .astrona/blueprint.yaml for the build plan.
+---
 version: 1
-approval: CNPA requested 2026-10-11; established reading-only scope
+approval: CNPA requested 2026-10-11; reading-only rule lifted by the maintainer
+  2026-11-03 (labs, playgrounds, capstones and quizzes added)
 course:
   id: ATS082
   certification:
@@ -12,48 +15,66 @@ course:
     - Platform Efficiency and Team Productivity
     - DORA Metrics for Platform Initiatives
 defaults:
-  playground: false
-  module_lab: false
-  capstone: false
-  section_quiz: false
+  playground: true
+  module_lab: true
+  capstone: true
+  section_quiz: true
   final_quiz: true
-assessment_format: YAML question banks v1, registered in assessments/index.yaml
+assessment_format: YAML question banks v1 (quiz.yaml per section, sections/final-domain-quiz.yaml), listed in astrona.yaml as type quiz
 sections:
 - id: section-010
   title: Platform Efficiency and Team Productivity
   curriculum_item: Platform Efficiency and Team Productivity
-  capstone: false
-  section_quiz: false
+  capstone: true
+  section_quiz: true
   modules:
   - id: module-01
     title: Task Outcomes, Flow And Developer Productivity Evidence
     objectives:
     - Distinguish platform efficiency from individual activity counts.
-    - Explain quantitative and qualitative evidence for developer experience.
-    - Reason about denominators, context and unintended incentives.
+    - Compute a completion rate over all attempts.
+    - Compute a median and a percentile over completed attempts and explain survivorship bias.
     outline:
-    - Task Outcomes, Flow And Developer Productivity Evidence
-    playground: false
-    module_lab: false
-    sources:
-    - reading: sections/section-010/module-01/course-01-task-outcomes-flow-and-developer-productivity-evidence.md
-      adapted_from: null
+    - Task Outcomes, Populations And Denominators
+    - Time To Complete, Percentiles And Survivorship
+    playground: true
+    module_lab: true
+  - id: module-02
+    title: Developer Experience Evidence And Incentives
+    objectives:
+    - Explain quantitative and qualitative evidence for developer experience.
+    - Reason about incentives, Goodhart's law and context.
+    - State the limits of a before-and-after comparison.
+    outline:
+    - Quantitative And Qualitative Evidence Of Developer Experience
+    - Incentives, Context And Causation
+    playground: true
+    module_lab: true
 - id: section-020
   title: DORA Metrics for Platform Initiatives
   curriculum_item: DORA Metrics for Platform Initiatives
-  capstone: false
-  section_quiz: false
+  capstone: true
+  section_quiz: true
   modules:
   - id: module-01
-    title: Delivery Metrics, Historical Models And Platform Interpretation
+    title: Delivery Metrics From Deployment Events
     objectives:
-    - Explain delivery throughput and instability measures.
-    - Distinguish traditional four-key terminology from the current five-metric model.
-    - Reason about service scope, causal limits and platform improvements.
+    - Define the five delivery metrics and their throughput and instability groups.
+    - Compute each metric from deployment events.
+    - Compute failed deployment recovery time over failed deployments only.
     outline:
-    - Delivery Metrics, Historical Models And Platform Interpretation
-    playground: false
-    module_lab: false
-    sources:
-    - reading: sections/section-020/module-01/course-01-delivery-metrics-historical-models-and-platform-interpretation.md
-      adapted_from: null
+    - The Five Delivery Metrics
+    - Computing Delivery Metrics From Deployment Events
+    playground: true
+    module_lab: true
+  - id: module-02
+    title: Interpreting DORA Metrics For Platform Initiatives
+    objectives:
+    - Distinguish the four-key terminology from the current five-metric model.
+    - Reason about service scope, causal limits and platform improvements.
+    - Explain the effect of Goodhart's law on delivery metrics.
+    outline:
+    - From Four Keys To Five Metrics
+    - Service Scope, Causal Limits And Platform Initiatives
+    playground: true
+    module_lab: true

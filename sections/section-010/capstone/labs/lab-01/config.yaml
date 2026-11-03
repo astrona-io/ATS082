@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://cli.astrona.io/schema/lab-config.schema.json
+#
+# Platform Efficiency Capstone (LAB). Graded against the live cluster. Built untested.
+apiVersion: astrona.io/v1
+metadata:
+  name: ats-082-capstone-010
+  docs:
+    prerequisites: prerequisites.md
+    question: question.md
+    solution: solution.md
+
+runtime:
+  type: kind
+  kind:
+    image: kindest/node:v1.35.8
+
+# Starting state: namespace metrics with 20 environment requests that carry timestamps, a latency claim and a ranking proposal.
+bootstrap:
+  init:
+    - name: seed-cluster
+      description: Create the namespace and the source data
+      type: file
+      source: bootstrap/01-seed-cluster.sh
+
+# Applied only by `astrona test`: the reference solution.
+testing:
+  init:
+    - name: apply-solution
+      description: Apply the reference solution
+      type: file
+      source: solution/apply.sh
+
+validation:
+  scripts:
+    - name: environment-requests-data-unchanged
+      description: The source requests are unchanged
+      type: file
+      source: validation/validate-environment-requests-data-unchanged.sh
+      hint: Do not edit the ConfigMap environment-requests.
+    - name: outcome-counts
+      description: attempts, completed, abandoned and the completion rate are recorded
+      type: file
+      source: validation/validate-outcome-counts.sh
+      hint: Count every outcome in the denominator. Abandoned requests are attempts that did not finish.
+    - name: p90-from-timestamps
+      description: The 90th percentile of the time to complete is recorded
+      type: file
+      source: validation/validate-p90-from-timestamps.sh
+      hint: Subtract requested_at from ended_at for completed requests only, sort and take the nearest-rank 90th percentile. In jq, fromdateiso8601 turns a timestamp into seconds.
+    - name: worst-class
+      description: The worst request class is named
+      type: file
+      source: validation/validate-worst-class.sh
+      hint: Compute the completion rate for each class.
+    - name: latency-claim-judged
+      description: The latency claim is judged with a reason
+      type: file
+      source: validation/validate-latency-claim-judged.sh
+      hint: Read latency-claim, compare its limit with your 90th percentile and write claim-supported (yes or no) and claim-reason.
+    - name: kpi-proposal-decided
+      description: The ranking proposal is rejected with a reason
+      type: file
+      source: validation/validate-kpi-proposal-decided.sh
+      hint: Read kpi-proposal. Decide with proposal-decision (accept or reject) and explain the effect on behaviour in proposal-reason.
+
+teardown:
+  keepCluster: false

@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://cli.astrona.io/schema/lab-config.schema.json
+#
+# Delivery Metrics From Deployment Events (PLAYGROUND). A clean sandbox: it starts a cluster and loads the
+# source data, then stays running for free exploration. No task, no grading,
+# no `astrona submit`. Built untested.
+apiVersion: astrona.io/v1
+metadata:
+  name: ats-082-playground-020-01
+  docs:
+    guide: docs/overview.md
+
+runtime:
+  type: kind
+  kind:
+    image: kindest/node:v1.35.8
+
+# What the learner starts with: namespace delivery with the ConfigMap deployments (20 deployments of shuttle-api over 10 days). No report exists.
+bootstrap:
+  manifests:
+    - name: data
+      type: file
+      source: manifests/data.yaml
+
+teardown:
+  keepCluster: false

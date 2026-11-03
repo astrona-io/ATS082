@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://cli.astrona.io/schema/lab-config.schema.json
+#
+# Interpret Delivery Metrics For A Platform Change (LAB). Graded against the live cluster. Built untested.
+apiVersion: astrona.io/v1
+metadata:
+  name: ats-082-lab-020-02
+  docs:
+    prerequisites: prerequisites.md
+    question: question.md
+    solution: solution.md
+
+runtime:
+  type: kind
+  kind:
+    image: kindest/node:v1.35.8
+
+# Starting state: namespace delivery with before and after metrics for three services and a claim about the platform pipeline.
+bootstrap:
+  init:
+    - name: seed-cluster
+      description: Create the namespace and the source data
+      type: file
+      source: bootstrap/01-seed-cluster.sh
+
+# Applied only by `astrona test`: the reference solution.
+testing:
+  init:
+    - name: apply-solution
+      description: Apply the reference solution
+      type: file
+      source: solution/apply.sh
+
+validation:
+  scripts:
+    - name: service-metrics-data-unchanged
+      description: The service metrics are unchanged
+      type: file
+      source: validation/validate-service-metrics-data-unchanged.sh
+      hint: Do not edit the ConfigMap service-metrics.
+    - name: current-metric-name
+      description: The legacy MTTR field is mapped to the current metric name
+      type: file
+      source: validation/validate-current-metric-name.sh
+      hint: The data calls it mttr_minutes. The current five-metric model uses a different name for recovery from a failed deployment.
+    - name: throughput-improved
+      description: Services with better throughput are named
+      type: file
+      source: validation/validate-throughput-improved.sh
+      hint: Among services on the platform pipeline, look for a lower lead time and a higher deployment frequency. List names separated by commas.
+    - name: instability-worsened
+      description: Services with worse instability are named
+      type: file
+      source: validation/validate-instability-worsened.sh
+      hint: Among services on the platform pipeline, look for a higher change fail rate or a higher rework rate.
+    - name: improved-without-platform
+      description: Services that improved without the platform are named
+      type: file
+      source: validation/validate-improved-without-platform.sh
+      hint: Look at services that are not on the platform pipeline and whose lead time fell.
+    - name: claim-and-scope-decided
+      description: The claim and the reporting scope are decided
+      type: file
+      source: validation/validate-claim-and-scope-decided.sh
+      hint: Read platform-claim. Use platform-claim (proven or not-proven), scope-decision (per-service or organisation-wide) and a reason.
+
+teardown:
+  keepCluster: false

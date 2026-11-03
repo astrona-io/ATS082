@@ -1,0 +1,179 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: delivery
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: deployments
+  namespace: delivery
+data:
+  deployments.json: |
+    [
+      {
+        "id": "d01",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-05T06:00:00Z",
+        "deployed_at": "2026-10-05T10:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d02",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-05T03:00:00Z",
+        "deployed_at": "2026-10-05T15:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d03",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-06T04:00:00Z",
+        "deployed_at": "2026-10-06T10:00:00Z",
+        "needed_intervention": true,
+        "unplanned_rework": false,
+        "recovered_at": "2026-10-06T10:20:00Z"
+      },
+      {
+        "id": "d04",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-04T15:00:00Z",
+        "deployed_at": "2026-10-06T15:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d05",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-07T07:00:00Z",
+        "deployed_at": "2026-10-07T10:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d06",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-07T10:00:00Z",
+        "deployed_at": "2026-10-07T15:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d07",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-07T08:00:00Z",
+        "deployed_at": "2026-10-08T10:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d08",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-08T08:00:00Z",
+        "deployed_at": "2026-10-08T15:00:00Z",
+        "needed_intervention": true,
+        "unplanned_rework": false,
+        "recovered_at": "2026-10-08T16:30:00Z"
+      },
+      {
+        "id": "d09",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-09T04:00:00Z",
+        "deployed_at": "2026-10-09T10:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": true
+      },
+      {
+        "id": "d10",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-09T05:00:00Z",
+        "deployed_at": "2026-10-09T15:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d11",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-10T01:00:00Z",
+        "deployed_at": "2026-10-10T10:00:00Z",
+        "needed_intervention": true,
+        "unplanned_rework": false,
+        "recovered_at": "2026-10-10T10:35:00Z"
+      },
+      {
+        "id": "d12",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-09T09:00:00Z",
+        "deployed_at": "2026-10-10T15:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d13",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-11T05:00:00Z",
+        "deployed_at": "2026-10-11T10:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d14",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-11T07:00:00Z",
+        "deployed_at": "2026-10-11T15:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d15",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-12T08:00:00Z",
+        "deployed_at": "2026-10-12T10:00:00Z",
+        "needed_intervention": true,
+        "unplanned_rework": false,
+        "recovered_at": "2026-10-12T15:00:00Z"
+      },
+      {
+        "id": "d16",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-12T11:00:00Z",
+        "deployed_at": "2026-10-12T15:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": true
+      },
+      {
+        "id": "d17",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-13T04:00:00Z",
+        "deployed_at": "2026-10-13T10:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d18",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-13T12:00:00Z",
+        "deployed_at": "2026-10-13T15:00:00Z",
+        "needed_intervention": true,
+        "unplanned_rework": false,
+        "recovered_at": "2026-10-13T15:50:00Z"
+      },
+      {
+        "id": "d19",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-14T05:00:00Z",
+        "deployed_at": "2026-10-14T10:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d20",
+        "service": "shuttle-api",
+        "committed_at": "2026-10-14T08:00:00Z",
+        "deployed_at": "2026-10-14T15:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      }
+    ]

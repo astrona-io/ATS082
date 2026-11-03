@@ -1,0 +1,241 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: delivery
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: deployments
+  namespace: delivery
+data:
+  deployments.json: |
+    [
+      {
+        "id": "d01",
+        "service": "bridge-api",
+        "committed_at": "2026-10-19T02:00:00Z",
+        "deployed_at": "2026-10-19T09:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d02",
+        "service": "bridge-api",
+        "committed_at": "2026-10-19T08:00:00Z",
+        "deployed_at": "2026-10-19T11:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d03",
+        "service": "bridge-api",
+        "committed_at": "2026-10-18T15:00:00Z",
+        "deployed_at": "2026-10-19T13:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d04",
+        "service": "bridge-api",
+        "committed_at": "2026-10-19T10:00:00Z",
+        "deployed_at": "2026-10-19T15:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d05",
+        "service": "bridge-api",
+        "committed_at": "2026-10-19T16:00:00Z",
+        "deployed_at": "2026-10-19T17:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d06",
+        "service": "bridge-api",
+        "committed_at": "2026-10-20T05:00:00Z",
+        "deployed_at": "2026-10-20T09:00:00Z",
+        "needed_intervention": true,
+        "unplanned_rework": false,
+        "recovered_at": "2026-10-20T09:15:00Z"
+      },
+      {
+        "id": "d07",
+        "service": "bridge-api",
+        "committed_at": "2026-10-18T11:00:00Z",
+        "deployed_at": "2026-10-20T11:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": true
+      },
+      {
+        "id": "d08",
+        "service": "bridge-api",
+        "committed_at": "2026-10-20T07:00:00Z",
+        "deployed_at": "2026-10-20T13:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d09",
+        "service": "bridge-api",
+        "committed_at": "2026-10-20T06:00:00Z",
+        "deployed_at": "2026-10-20T15:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d10",
+        "service": "bridge-api",
+        "committed_at": "2026-10-20T15:00:00Z",
+        "deployed_at": "2026-10-20T17:00:00Z",
+        "needed_intervention": true,
+        "unplanned_rework": false,
+        "recovered_at": "2026-10-20T17:45:00Z"
+      },
+      {
+        "id": "d11",
+        "service": "bridge-api",
+        "committed_at": "2026-10-20T21:00:00Z",
+        "deployed_at": "2026-10-21T09:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d12",
+        "service": "bridge-api",
+        "committed_at": "2026-10-21T06:00:00Z",
+        "deployed_at": "2026-10-21T11:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d13",
+        "service": "bridge-api",
+        "committed_at": "2026-10-20T07:00:00Z",
+        "deployed_at": "2026-10-21T13:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d14",
+        "service": "bridge-api",
+        "committed_at": "2026-10-21T07:00:00Z",
+        "deployed_at": "2026-10-21T15:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d15",
+        "service": "bridge-api",
+        "committed_at": "2026-10-21T14:00:00Z",
+        "deployed_at": "2026-10-21T17:00:00Z",
+        "needed_intervention": true,
+        "unplanned_rework": false,
+        "recovered_at": "2026-10-21T18:00:00Z"
+      },
+      {
+        "id": "d16",
+        "service": "bridge-api",
+        "committed_at": "2026-10-21T19:00:00Z",
+        "deployed_at": "2026-10-22T09:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": true
+      },
+      {
+        "id": "d17",
+        "service": "bridge-api",
+        "committed_at": "2026-10-22T07:00:00Z",
+        "deployed_at": "2026-10-22T11:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d18",
+        "service": "bridge-api",
+        "committed_at": "2026-10-19T13:00:00Z",
+        "deployed_at": "2026-10-22T13:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d19",
+        "service": "bridge-api",
+        "committed_at": "2026-10-22T07:00:00Z",
+        "deployed_at": "2026-10-22T15:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d20",
+        "service": "bridge-api",
+        "committed_at": "2026-10-22T12:00:00Z",
+        "deployed_at": "2026-10-22T17:00:00Z",
+        "needed_intervention": true,
+        "unplanned_rework": false,
+        "recovered_at": "2026-10-22T21:00:00Z"
+      },
+      {
+        "id": "d21",
+        "service": "bridge-api",
+        "committed_at": "2026-10-22T15:00:00Z",
+        "deployed_at": "2026-10-23T09:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d22",
+        "service": "bridge-api",
+        "committed_at": "2026-10-23T01:00:00Z",
+        "deployed_at": "2026-10-23T11:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d23",
+        "service": "bridge-api",
+        "committed_at": "2026-10-23T10:00:00Z",
+        "deployed_at": "2026-10-23T13:00:00Z",
+        "needed_intervention": true,
+        "unplanned_rework": false,
+        "recovered_at": "2026-10-23T13:30:00Z"
+      },
+      {
+        "id": "d24",
+        "service": "bridge-api",
+        "committed_at": "2026-10-23T11:00:00Z",
+        "deployed_at": "2026-10-23T15:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      },
+      {
+        "id": "d25",
+        "service": "bridge-api",
+        "committed_at": "2026-10-23T10:00:00Z",
+        "deployed_at": "2026-10-23T17:00:00Z",
+        "needed_intervention": false,
+        "unplanned_rework": false
+      }
+    ]
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: legacy-dashboard
+  namespace: delivery
+data:
+  dashboard.json: |
+    {
+      "title": "Delivery dashboard",
+      "panels": [
+        {
+          "name": "MTTR",
+          "value_minutes": 12
+        },
+        {
+          "name": "Deploys",
+          "value_per_day": 5
+        }
+      ],
+      "note": "Panel MTTR averages only incidents that were closed within one hour"
+    }

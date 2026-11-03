@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=https://cli.astrona.io/schema/lab-config.schema.json
+#
+# DORA Metrics For Platform Initiatives Capstone (LAB). Graded against the live cluster. Built untested.
+apiVersion: astrona.io/v1
+metadata:
+  name: ats-082-capstone-020
+  docs:
+    prerequisites: prerequisites.md
+    question: question.md
+    solution: solution.md
+
+runtime:
+  type: kind
+  kind:
+    image: kindest/node:v1.35.8
+
+# Starting state: namespace delivery with 25 deployment events of the service bridge-api and a legacy dashboard.
+bootstrap:
+  init:
+    - name: seed-cluster
+      description: Create the namespace and the source data
+      type: file
+      source: bootstrap/01-seed-cluster.sh
+
+# Applied only by `astrona test`: the reference solution.
+testing:
+  init:
+    - name: apply-solution
+      description: Apply the reference solution
+      type: file
+      source: solution/apply.sh
+
+validation:
+  scripts:
+    - name: bridge-deployments-data-unchanged
+      description: The deployment events are unchanged
+      type: file
+      source: validation/validate-bridge-deployments-data-unchanged.sh
+      hint: Do not edit the ConfigMap deployments.
+    - name: deployment-frequency
+      description: Scope, deployments, window and frequency are recorded
+      type: file
+      source: validation/validate-deployment-frequency.sh
+      hint: Record service-scope bridge-api. The window is the 5 days from 19 October to 23 October.
+    - name: change-lead-time
+      description: The median change lead time is recorded
+      type: file
+      source: validation/validate-change-lead-time.sh
+      hint: For an odd count the median is the middle value after sorting.
+    - name: instability-metrics
+      description: Change fail rate and deployment rework rate are recorded
+      type: file
+      source: validation/validate-instability-metrics.sh
+      hint: They are two different sets of deployments.
+    - name: failed-deployment-recovery
+      description: The recovery time is recorded with its current name
+      type: file
+      source: validation/validate-failed-deployment-recovery.sh
+      hint: Only failed deployments have recovered_at. Write the name the five-metric model uses in recovery-metric-name.
+    - name: metric-groups
+      description: The two instability metrics are named
+      type: file
+      source: validation/validate-metric-groups.sh
+      hint: List the two metrics of the instability group, separated by a comma.
+    - name: dashboard-judged
+      description: The legacy dashboard is judged with a reason
+      type: file
+      source: validation/validate-dashboard-judged.sh
+      hint: Read legacy-dashboard and its note. Write dashboard-valid (yes or no) and dashboard-reason.
+
+teardown:
+  keepCluster: false

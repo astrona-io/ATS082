@@ -1,7 +1,9 @@
 # Get Your Machine Ready
 
-A Markdown reader or the Astrona reading interface is sufficient. Mermaid diagrams describe relationships also explained in the surrounding text.
+You need the Astrona command-line tool, a container runtime that kind can use, `kubectl` and `jq`. The playgrounds and labs start a single-node kind cluster running Kubernetes 1.35 and point `kubectl` at it as the cluster administrator. `jq` runs on your own machine.
 
-No cluster, cloud account, container runtime or installed CLI is required. Resource excerpts and query expressions illustrate contracts; they are not exercises asking you to deploy or execute anything. No labs or playgrounds are included.
+Mermaid diagrams describe relationships that the surrounding text also explains.
 
-Keep notes on unfamiliar terms and explain why each practice answer follows from the teaching. If a page cannot be read, report its title and visible problem so maintainers can identify it.
+Each lab says in its README that it was built without a test run. If a step fails for a reason that you cannot explain, report the lab path and the visible error so maintainers can check it.
+
+Keep notes on unfamiliar terms and explain why each calculation follows from the definition.

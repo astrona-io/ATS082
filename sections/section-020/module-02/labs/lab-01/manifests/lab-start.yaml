@@ -1,0 +1,80 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: delivery
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: service-metrics
+  namespace: delivery
+data:
+  metrics.json: |
+    [
+      {
+        "service": "scout-api",
+        "platform_pipeline": true,
+        "before": {
+          "lead_time_hours": 48,
+          "deploys_per_week": 2,
+          "change_fail_rate_percent": 10,
+          "mttr_minutes": 120,
+          "rework_rate_percent": 5
+        },
+        "after": {
+          "lead_time_hours": 8,
+          "deploys_per_week": 10,
+          "change_fail_rate_percent": 20,
+          "mttr_minutes": 60,
+          "rework_rate_percent": 15
+        }
+      },
+      {
+        "service": "probe-api",
+        "platform_pipeline": true,
+        "before": {
+          "lead_time_hours": 24,
+          "deploys_per_week": 4,
+          "change_fail_rate_percent": 15,
+          "mttr_minutes": 90,
+          "rework_rate_percent": 10
+        },
+        "after": {
+          "lead_time_hours": 6,
+          "deploys_per_week": 12,
+          "change_fail_rate_percent": 10,
+          "mttr_minutes": 45,
+          "rework_rate_percent": 5
+        }
+      },
+      {
+        "service": "drifter-api",
+        "platform_pipeline": false,
+        "before": {
+          "lead_time_hours": 40,
+          "deploys_per_week": 3,
+          "change_fail_rate_percent": 10,
+          "mttr_minutes": 100,
+          "rework_rate_percent": 5
+        },
+        "after": {
+          "lead_time_hours": 30,
+          "deploys_per_week": 4,
+          "change_fail_rate_percent": 10,
+          "mttr_minutes": 100,
+          "rework_rate_percent": 5
+        }
+      }
+    ]
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: platform-claim
+  namespace: delivery
+data:
+  claim.json: |
+    {
+      "statement": "The platform pipeline made every team better, so report one organisation-wide score",
+      "requested_by": "planning"
+    }

@@ -1,0 +1,271 @@
+# Knowledge check for section 020. Listed in astrona.yaml as a `type: quiz` entry after the capstone lab.
+---
+schema_version: 1
+kind: question_bank
+id: ats082-020
+course_id: ATS082
+exam_code: CNPA
+status: draft
+provenance: Original practice material written for this course; not official exam
+  questions.
+scope:
+  type: section
+  id: section-020
+  title: DORA Metrics for Platform Initiatives
+questions:
+- id: ats082-020-q01
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Sort the five metrics into throughput and instability
+  source_readings:
+  - sections/section-020/module-01/course-01-the-five-delivery-metrics.md
+  prompt: Which two metrics belong to the instability group of the DORA model?
+  options:
+  - id: a
+    text: Change lead time and deployment frequency.
+    explanation: These are throughput metrics, about how fast and how often changes
+      reach production.
+  - id: b
+    text: Change fail rate and deployment rework rate.
+    explanation: Correct. These two count how often delivery goes wrong. The other
+      three are throughput metrics.
+  - id: c
+    text: Deployment frequency and change fail rate.
+    explanation: Deployment frequency is a throughput metric.
+  - id: d
+    text: Failed deployment recovery time and change lead time.
+    explanation: Both are throughput metrics in the current model.
+  correct_option: b
+  explanation: These two count how often delivery goes wrong. The other three are
+    throughput metrics.
+- id: ats082-020-q02
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Define change lead time
+  source_readings:
+  - sections/section-020/module-01/course-01-the-five-delivery-metrics.md
+  prompt: Which two timestamps does change lead time need for each change?
+  options:
+  - id: a
+    text: The commit time and the production deployment time.
+    explanation: Correct. Change lead time is the time from commit to the deployment
+      in production.
+  - id: b
+    text: The ticket creation time and the commit time.
+    explanation: The metric starts at the commit, not at the ticket.
+  - id: c
+    text: The build start time and the build end time.
+    explanation: This is the build duration, one part of the lead time.
+  - id: d
+    text: The failure time and the recovery time.
+    explanation: This is failed deployment recovery time.
+  correct_option: a
+  explanation: Change lead time is the time from commit to the deployment in production.
+- id: ats082-020-q03
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute a rate with its denominator
+  source_readings:
+  - sections/section-020/module-01/course-02-computing-delivery-metrics-from-deployment-events.md
+  prompt: A service had 30 production deployments in a window and 6 of them needed
+    immediate intervention. What is the change fail rate?
+  options:
+  - id: a
+    text: 6 percent.
+    explanation: 6 is the count of failed deployments, not a percentage.
+  - id: b
+    text: 25 percent.
+    explanation: This divides the failures by the successful deployments, 6 divided
+      by 24.
+  - id: c
+    text: 80 percent.
+    explanation: This is the share of deployments that did not need intervention.
+  - id: d
+    text: 20 percent.
+    explanation: Correct. The fail rate is 6 divided by 30 times 100, using all deployments
+      as the denominator.
+  correct_option: d
+  explanation: The fail rate is 6 divided by 30 times 100, using all deployments as
+    the denominator.
+- id: ats082-020-q04
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute a median of an even number of values
+  source_readings:
+  - sections/section-020/module-01/course-02-computing-delivery-metrics-from-deployment-events.md
+  prompt: Four changes had lead times of 2, 4, 6 and 20 hours. What is the median
+    lead time?
+  options:
+  - id: a
+    text: 8 hours.
+    explanation: 8 is the mean of the four values.
+  - id: b
+    text: 4 hours.
+    explanation: This takes only the lower of the two middle values.
+  - id: c
+    text: 5 hours.
+    explanation: Correct. With an even count the median is the average of the two
+      middle values, 4 and 6.
+  - id: d
+    text: 6 hours.
+    explanation: This takes only the upper of the two middle values.
+  correct_option: c
+  explanation: With an even count the median is the average of the two middle values,
+    4 and 6.
+- id: ats082-020-q05
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Select the right records for recovery time
+  source_readings:
+  - sections/section-020/module-01/course-02-computing-delivery-metrics-from-deployment-events.md
+  prompt: Over which deployments is failed deployment recovery time computed?
+  options:
+  - id: a
+    text: All deployments in the window.
+    explanation: Successful deployments have no recovery time.
+  - id: b
+    text: Only the deployments that failed and needed intervention.
+    explanation: Correct. A successful deployment has no recovery event, and including
+      it would add false values.
+  - id: c
+    text: Only the deployments that were rework.
+    explanation: Rework and failure are different sets of deployments.
+  - id: d
+    text: Only the deployments made at night.
+    explanation: The time of day does not decide which deployments are included.
+  correct_option: b
+  explanation: A successful deployment has no recovery event, and including it would
+    add false values.
+- id: ats082-020-q06
+  type: single_choice
+  difficulty: beginner
+  learning_objective: Know the current name of MTTR
+  source_readings:
+  - sections/section-020/module-02/course-01-from-four-keys-to-five-metrics.md
+  prompt: An old dashboard shows a panel named MTTR. What is the name of the corresponding
+    metric in the current five-metric model?
+  options:
+  - id: a
+    text: Failed deployment recovery time.
+    explanation: Correct. The current metric starts at a failed deployment and is
+      part of the throughput group.
+  - id: b
+    text: Change fail rate.
+    explanation: The fail rate is a share of deployments, not a duration.
+  - id: c
+    text: Deployment rework rate.
+    explanation: The rework rate is a share of deployments, not a duration.
+  - id: d
+    text: Change lead time.
+    explanation: Lead time runs from commit to deployment and is a different metric.
+  correct_option: a
+  explanation: The current metric starts at a failed deployment and is part of the
+    throughput group.
+- id: ats082-020-q07
+  type: single_choice
+  difficulty: advanced
+  learning_objective: Read throughput and instability together
+  source_readings:
+  - sections/section-020/module-02/course-01-from-four-keys-to-five-metrics.md
+  prompt: After a pipeline change, a service ships five times as often and its change
+    fail rate doubles. What is the supported statement?
+  options:
+  - id: a
+    text: The change improved delivery because frequency rose.
+    explanation: Frequency is one metric of five, and the instability group moved
+      the wrong way.
+  - id: b
+    text: The change did nothing because the numbers cancel.
+    explanation: The two groups measure different things and do not cancel.
+  - id: c
+    text: The fail rate is not valid for a fast service.
+    explanation: The fail rate applies to every service.
+  - id: d
+    text: Throughput improved and instability worsened, so the change needs a look
+      at the release checks.
+    explanation: Correct. Both groups are read together, and the rise in failures
+      is a finding.
+  correct_option: d
+  explanation: Both groups are read together, and the rise in failures is a finding.
+- id: ats082-020-q08
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Explain why the service is the unit
+  source_readings:
+  - sections/section-020/module-02/course-02-service-scope-causal-limits-and-platform-initiatives.md
+  prompt: Why does a platform team report delivery metrics for each service and not
+    as one score for the organisation?
+  options:
+  - id: a
+    text: The metrics cannot be computed for more than one service.
+    explanation: They can be computed. Blending them is the problem.
+  - id: b
+    text: An organisation-wide score is always higher.
+    explanation: The blended value is not always higher or lower. It describes no
+      service.
+  - id: c
+    text: Inputs differ by service, a blended score has no owner and it hides services
+      that moved in different directions.
+    explanation: Correct. One service has one pipeline, one set of deployments and
+      one team that can act on its number.
+  - id: d
+    text: The research forbids any report of more than one number.
+    explanation: A table with one row per service is the recommended form.
+  correct_option: c
+  explanation: One service has one pipeline, one set of deployments and one team that
+    can act on its number.
+- id: ats082-020-q09
+  type: single_choice
+  difficulty: advanced
+  learning_objective: Judge a causal claim about a platform change
+  source_readings:
+  - sections/section-020/module-02/course-02-service-scope-causal-limits-and-platform-initiatives.md
+  prompt: Planning claims that a new pipeline made every team better. Two services
+    on the pipeline cut lead time, and a service not on the pipeline cut its lead
+    time by a smaller amount. What is the best decision?
+  options:
+  - id: a
+    text: Proven, because lead time fell for every service on the pipeline.
+    explanation: The service outside the pipeline also improved, and other changes
+      are not ruled out.
+  - id: b
+    text: Not proven. Report each service and keep the service outside the pipeline
+      as a comparison.
+    explanation: Correct. The comparison service improved too, and a before-and-after
+      change cannot rule out other causes.
+  - id: c
+    text: Proven, because every service improved.
+    explanation: The claim says the pipeline caused it, and the data does not show
+      that.
+  - id: d
+    text: Not proven, and delivery metrics are useless for platform work.
+    explanation: The metrics are useful as evidence. They have limits.
+  correct_option: b
+  explanation: The comparison service improved too, and a before-and-after change
+    cannot rule out other causes.
+- id: ats082-020-q10
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Apply Goodhart's law to a delivery metric
+  source_readings:
+  - sections/section-020/module-02/course-02-service-scope-causal-limits-and-platform-initiatives.md
+  prompt: A platform team makes deployment frequency a target for every team. What
+    is the most likely result?
+  options:
+  - id: a
+    text: Teams split changes into trivial deployments, so the number rises without
+      faster delivery.
+    explanation: Correct. A measure that becomes a target stops describing delivery.
+  - id: b
+    text: Delivery gets safer because deployments get smaller.
+    explanation: Splitting for the number does not make the changes safer or more
+      valuable.
+  - id: c
+    text: Lead time and fail rate improve automatically.
+    explanation: Nothing links a frequency target to the other metrics.
+  - id: d
+    text: Frequency becomes more accurate.
+    explanation: A target reduces how well a measure describes what it was meant to
+      describe.
+  correct_option: a
+  explanation: A measure that becomes a target stops describing delivery.

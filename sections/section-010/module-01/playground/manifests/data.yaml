@@ -1,0 +1,134 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: metrics
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: provisioning-requests
+  namespace: metrics
+data:
+  requests.json: |
+    [
+      {
+        "id": "r01",
+        "class": "small",
+        "outcome": "completed",
+        "seconds": 60
+      },
+      {
+        "id": "r02",
+        "class": "large",
+        "outcome": "completed",
+        "seconds": 110
+      },
+      {
+        "id": "r03",
+        "class": "small",
+        "outcome": "completed",
+        "seconds": 65
+      },
+      {
+        "id": "r04",
+        "class": "small",
+        "outcome": "completed",
+        "seconds": 70
+      },
+      {
+        "id": "r05",
+        "class": "large",
+        "outcome": "completed",
+        "seconds": 600
+      },
+      {
+        "id": "r06",
+        "class": "small",
+        "outcome": "completed",
+        "seconds": 70
+      },
+      {
+        "id": "r07",
+        "class": "large",
+        "outcome": "failed",
+        "seconds": 45
+      },
+      {
+        "id": "r08",
+        "class": "small",
+        "outcome": "completed",
+        "seconds": 75
+      },
+      {
+        "id": "r09",
+        "class": "small",
+        "outcome": "completed",
+        "seconds": 80
+      },
+      {
+        "id": "r10",
+        "class": "large",
+        "outcome": "failed",
+        "seconds": 50
+      },
+      {
+        "id": "r11",
+        "class": "small",
+        "outcome": "completed",
+        "seconds": 85
+      },
+      {
+        "id": "r12",
+        "class": "small",
+        "outcome": "completed",
+        "seconds": 90
+      },
+      {
+        "id": "r13",
+        "class": "large",
+        "outcome": "failed",
+        "seconds": 55
+      },
+      {
+        "id": "r14",
+        "class": "small",
+        "outcome": "completed",
+        "seconds": 95
+      },
+      {
+        "id": "r15",
+        "class": "large",
+        "outcome": "failed",
+        "seconds": 60
+      },
+      {
+        "id": "r16",
+        "class": "small",
+        "outcome": "completed",
+        "seconds": 100
+      },
+      {
+        "id": "r17",
+        "class": "small",
+        "outcome": "failed",
+        "seconds": 30
+      },
+      {
+        "id": "r18",
+        "class": "large",
+        "outcome": "abandoned",
+        "seconds": 1200
+      },
+      {
+        "id": "r19",
+        "class": "small",
+        "outcome": "abandoned",
+        "seconds": 900
+      },
+      {
+        "id": "r20",
+        "class": "large",
+        "outcome": "abandoned",
+        "seconds": 1500
+      }
+    ]

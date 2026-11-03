@@ -1,0 +1,178 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: metrics
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: environment-requests
+  namespace: metrics
+data:
+  requests.json: |
+    [
+      {
+        "id": "e01",
+        "class": "small",
+        "outcome": "completed",
+        "requested_at": "2026-10-20T08:00:00Z",
+        "ended_at": "2026-10-20T08:02:00Z"
+      },
+      {
+        "id": "e02",
+        "class": "small",
+        "outcome": "completed",
+        "requested_at": "2026-10-20T08:30:00Z",
+        "ended_at": "2026-10-20T08:32:30Z"
+      },
+      {
+        "id": "e03",
+        "class": "large",
+        "outcome": "completed",
+        "requested_at": "2026-10-20T09:00:00Z",
+        "ended_at": "2026-10-20T09:07:00Z"
+      },
+      {
+        "id": "e04",
+        "class": "small",
+        "outcome": "failed",
+        "requested_at": "2026-10-20T09:30:00Z",
+        "ended_at": "2026-10-20T09:31:00Z"
+      },
+      {
+        "id": "e05",
+        "class": "small",
+        "outcome": "completed",
+        "requested_at": "2026-10-20T10:00:00Z",
+        "ended_at": "2026-10-20T10:02:30Z"
+      },
+      {
+        "id": "e06",
+        "class": "large",
+        "outcome": "abandoned",
+        "requested_at": "2026-10-20T10:30:00Z",
+        "ended_at": "2026-10-20T11:00:00Z"
+      },
+      {
+        "id": "e07",
+        "class": "small",
+        "outcome": "completed",
+        "requested_at": "2026-10-20T11:00:00Z",
+        "ended_at": "2026-10-20T11:03:00Z"
+      },
+      {
+        "id": "e08",
+        "class": "large",
+        "outcome": "completed",
+        "requested_at": "2026-10-20T11:30:00Z",
+        "ended_at": "2026-10-20T11:40:00Z"
+      },
+      {
+        "id": "e09",
+        "class": "small",
+        "outcome": "abandoned",
+        "requested_at": "2026-10-20T12:00:00Z",
+        "ended_at": "2026-10-20T12:20:00Z"
+      },
+      {
+        "id": "e10",
+        "class": "small",
+        "outcome": "completed",
+        "requested_at": "2026-10-20T12:30:00Z",
+        "ended_at": "2026-10-20T12:33:00Z"
+      },
+      {
+        "id": "e11",
+        "class": "large",
+        "outcome": "failed",
+        "requested_at": "2026-10-20T13:00:00Z",
+        "ended_at": "2026-10-20T13:01:30Z"
+      },
+      {
+        "id": "e12",
+        "class": "small",
+        "outcome": "completed",
+        "requested_at": "2026-10-20T13:30:00Z",
+        "ended_at": "2026-10-20T13:33:20Z"
+      },
+      {
+        "id": "e13",
+        "class": "large",
+        "outcome": "completed",
+        "requested_at": "2026-10-20T14:00:00Z",
+        "ended_at": "2026-10-20T14:15:00Z"
+      },
+      {
+        "id": "e14",
+        "class": "small",
+        "outcome": "completed",
+        "requested_at": "2026-10-20T14:30:00Z",
+        "ended_at": "2026-10-20T14:34:00Z"
+      },
+      {
+        "id": "e15",
+        "class": "large",
+        "outcome": "abandoned",
+        "requested_at": "2026-10-20T15:00:00Z",
+        "ended_at": "2026-10-20T15:25:00Z"
+      },
+      {
+        "id": "e16",
+        "class": "small",
+        "outcome": "completed",
+        "requested_at": "2026-10-20T15:30:00Z",
+        "ended_at": "2026-10-20T15:35:00Z"
+      },
+      {
+        "id": "e17",
+        "class": "small",
+        "outcome": "abandoned",
+        "requested_at": "2026-10-20T16:00:00Z",
+        "ended_at": "2026-10-20T16:15:00Z"
+      },
+      {
+        "id": "e18",
+        "class": "large",
+        "outcome": "failed",
+        "requested_at": "2026-10-20T16:30:00Z",
+        "ended_at": "2026-10-20T16:31:15Z"
+      },
+      {
+        "id": "e19",
+        "class": "small",
+        "outcome": "completed",
+        "requested_at": "2026-10-20T17:00:00Z",
+        "ended_at": "2026-10-20T17:06:00Z"
+      },
+      {
+        "id": "e20",
+        "class": "large",
+        "outcome": "completed",
+        "requested_at": "2026-10-20T17:30:00Z",
+        "ended_at": "2026-10-20T17:55:00Z"
+      }
+    ]
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: latency-claim
+  namespace: metrics
+data:
+  claim.json: |
+    {
+      "statement": "90 percent of environment requests are ready in under 5 minutes",
+      "p90_limit_seconds": 300
+    }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kpi-proposal
+  namespace: metrics
+data:
+  proposal.json: |
+    {
+      "proposal": "Rank engineers each quarter by the number of environments they requested",
+      "reason": "More requests show more activity"
+    }

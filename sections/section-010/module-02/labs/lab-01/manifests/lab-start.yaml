@@ -1,0 +1,138 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: metrics
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: portal-usage
+  namespace: metrics
+data:
+  usage.json: |
+    [
+      {
+        "month": "2026-08",
+        "sessions_started": 200,
+        "tasks_completed": 160,
+        "tickets": 40
+      },
+      {
+        "month": "2026-09",
+        "sessions_started": 200,
+        "tasks_completed": 160,
+        "tickets": 40
+      },
+      {
+        "month": "2026-10",
+        "sessions_started": 200,
+        "tasks_completed": 120,
+        "tickets": 30
+      },
+      {
+        "month": "2026-11",
+        "sessions_started": 200,
+        "tasks_completed": 100,
+        "tickets": 24
+      }
+    ]
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: survey-responses
+  namespace: metrics
+data:
+  survey.json: |
+    [
+      {
+        "id": "s01",
+        "score": 2,
+        "theme": "unclear-error",
+        "comment": "The error message does not say which field is wrong."
+      },
+      {
+        "id": "s02",
+        "score": 3,
+        "theme": "confusing-field",
+        "comment": "I could not tell what the size field means."
+      },
+      {
+        "id": "s03",
+        "score": 2,
+        "theme": "workaround",
+        "comment": "I create the environment with a script and skip the portal."
+      },
+      {
+        "id": "s04",
+        "score": 2,
+        "theme": "unclear-error",
+        "comment": "The error message does not say which field is wrong."
+      },
+      {
+        "id": "s05",
+        "score": 3,
+        "theme": "confusing-field",
+        "comment": "I could not tell what the size field means."
+      },
+      {
+        "id": "s06",
+        "score": 1,
+        "theme": "unclear-error",
+        "comment": "The error message does not say which field is wrong."
+      },
+      {
+        "id": "s07",
+        "score": 3,
+        "theme": "workaround",
+        "comment": "I create the environment with a script and skip the portal."
+      },
+      {
+        "id": "s08",
+        "score": 3,
+        "theme": "confusing-field",
+        "comment": "I could not tell what the size field means."
+      },
+      {
+        "id": "s09",
+        "score": 2,
+        "theme": "unclear-error",
+        "comment": "The error message does not say which field is wrong."
+      },
+      {
+        "id": "s10",
+        "score": 2,
+        "theme": "confusing-field",
+        "comment": "I could not tell what the size field means."
+      },
+      {
+        "id": "s11",
+        "score": 2,
+        "theme": "unclear-error",
+        "comment": "The error message does not say which field is wrong."
+      },
+      {
+        "id": "s12",
+        "score": 3,
+        "theme": "workaround",
+        "comment": "I create the environment with a script and skip the portal."
+      }
+    ]
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: platform-changes
+  namespace: metrics
+data:
+  changes.json: |
+    [
+      {
+        "date": "2026-10-01",
+        "change": "Portal redesign released"
+      },
+      {
+        "date": "2026-10-12",
+        "change": "Environment quota per team reduced from 5 to 2"
+      }
+    ]

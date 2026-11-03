@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://cli.astrona.io/schema/lab-config.schema.json
+#
+# Compute The Five Delivery Metrics (LAB). Graded against the live cluster. Built untested.
+apiVersion: astrona.io/v1
+metadata:
+  name: ats-082-lab-020-01
+  docs:
+    prerequisites: prerequisites.md
+    question: question.md
+    solution: solution.md
+
+runtime:
+  type: kind
+  kind:
+    image: kindest/node:v1.35.8
+
+# Starting state: namespace delivery with 20 deployment events of the service shuttle-api and no report.
+bootstrap:
+  init:
+    - name: seed-cluster
+      description: Create the namespace and the source data
+      type: file
+      source: bootstrap/01-seed-cluster.sh
+
+# Applied only by `astrona test`: the reference solution.
+testing:
+  init:
+    - name: apply-solution
+      description: Apply the reference solution
+      type: file
+      source: solution/apply.sh
+
+validation:
+  scripts:
+    - name: deployments-data-unchanged
+      description: The deployment events are unchanged
+      type: file
+      source: validation/validate-deployments-data-unchanged.sh
+      hint: Do not edit the ConfigMap deployments.
+    - name: deployment-frequency
+      description: deployments, window-days and deployment-frequency-per-day are recorded
+      type: file
+      source: validation/validate-deployment-frequency.sh
+      hint: The window is the 10 days from 5 October to 14 October. Frequency is deployments divided by days.
+    - name: change-lead-time
+      description: The median change lead time in hours is recorded
+      type: file
+      source: validation/validate-change-lead-time.sh
+      hint: Subtract committed_at from deployed_at for every deployment. For an even count the median is the average of the two middle values.
+    - name: change-fail-rate
+      description: The change fail rate is recorded
+      type: file
+      source: validation/validate-change-fail-rate.sh
+      hint: Deployments with needed_intervention true, divided by all deployments, times 100.
+    - name: failed-deployment-recovery
+      description: The median failed deployment recovery time is recorded
+      type: file
+      source: validation/validate-failed-deployment-recovery.sh
+      hint: Only failed deployments have recovered_at. Use minutes from deployed_at to recovered_at.
+    - name: deployment-rework-rate
+      description: The deployment rework rate is recorded
+      type: file
+      source: validation/validate-deployment-rework-rate.sh
+      hint: Count deployments with unplanned_rework true. They are not the same set as the failed deployments.
+
+teardown:
+  keepCluster: false

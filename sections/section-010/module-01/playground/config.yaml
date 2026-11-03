@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://cli.astrona.io/schema/lab-config.schema.json
+#
+# Task Outcomes And Denominators (PLAYGROUND). A clean sandbox: it starts a cluster and loads the
+# source data, then stays running for free exploration. No task, no grading,
+# no `astrona submit`. Built untested.
+apiVersion: astrona.io/v1
+metadata:
+  name: ats-082-playground-010-01
+  docs:
+    guide: docs/overview.md
+
+runtime:
+  type: kind
+  kind:
+    image: kindest/node:v1.35.8
+
+# What the learner starts with: namespace metrics with the ConfigMap provisioning-requests (20 environment requests, 12 completed, 5 failed, 3 abandoned, two classes). No report exists.
+bootstrap:
+  manifests:
+    - name: data
+      type: file
+      source: manifests/data.yaml
+
+teardown:
+  keepCluster: false

@@ -1,9 +1,9 @@
-# Reading-only content; YAML knowledge checks have a separate index.
+# Course manifest for ATS082. Each section lists its README, modules (landing, parts, lab Question reading and lab entry after the part tested, summary), a capstone and a quiz.
 training:
   id: ATS082
   title: 'CNPA: Measuring your Platform'
-  description: 'Detailed reading material and reusable YAML knowledge checks for CNPA: Measuring your
-    Platform. Technical content remains draft. No labs or playgrounds.'
+  description: Concept lessons, playgrounds, graded labs, capstones and original scenario quizzes covering
+    the measuring domain of the CNPA exam. Labs run on kind (Kubernetes 1.35) and analyse data with kubectl and jq.
   certification:
     name: Certified Cloud Native Platform Engineering Associate
     code: CNPA
@@ -14,53 +14,212 @@ training:
     - Platform Efficiency and Team Productivity
     - DORA Metrics for Platform Initiatives
 modules:
-- id: module-intro
-  title: Introduction
-  description: Audience, reading method and review process.
-  content:
-  - type: reading
+  - id: module-intro
     title: Introduction
-    path: sections/intro/README.md
-  - type: reading
-    title: Welcome To The Course
-    path: sections/intro/course-01-welcome.md
-  - type: reading
-    title: Get Your Machine Ready
-    path: sections/intro/course-02-get-your-machine-ready.md
-  - type: reading
-    title: How This Course Is Made
-    path: sections/intro/course-03-how-this-course-is-made.md
-- id: module-010
-  title: Platform Efficiency and Team Productivity
-  description: Developed reading and reasoning for Platform Efficiency and Team Productivity.
-  maturity: alpha
-  content:
-  - type: reading
-    title: Platform Efficiency and Team Productivity
-    path: sections/section-010/README.md
-  - type: reading
-    title: Task Outcomes, Flow And Developer Productivity Evidence
-    path: sections/section-010/module-01/course.md
-  - type: reading
-    title: Task Outcomes, Flow And Developer Productivity Evidence
-    path: sections/section-010/module-01/course-01-task-outcomes-flow-and-developer-productivity-evidence.md
-  - type: reading
-    title: Summary
-    path: sections/section-010/module-01/course-02-summary.md
-- id: module-020
-  title: DORA Metrics for Platform Initiatives
-  description: Developed reading and reasoning for DORA Metrics for Platform Initiatives.
-  maturity: alpha
-  content:
-  - type: reading
-    title: DORA Metrics for Platform Initiatives
-    path: sections/section-020/README.md
-  - type: reading
-    title: Delivery Metrics, Historical Models And Platform Interpretation
-    path: sections/section-020/module-01/course.md
-  - type: reading
-    title: Delivery Metrics, Historical Models And Platform Interpretation
-    path: sections/section-020/module-01/course-01-delivery-metrics-historical-models-and-platform-interpretation.md
-  - type: reading
-    title: Summary
-    path: sections/section-020/module-01/course-02-summary.md
+    description: Audience, learning approach, reading requirements and contribution process.
+    content:
+    - type: reading
+      title: Introduction
+      path: sections/intro/README.md
+    - type: reading
+      title: Welcome To The Course
+      path: sections/intro/course-01-welcome.md
+    - type: reading
+      title: Get Your Machine Ready
+      path: sections/intro/course-02-get-your-machine-ready.md
+    - type: reading
+      title: How This Course Is Made
+      path: sections/intro/course-03-how-this-course-is-made.md
+  - id: module-010
+    title: "Platform Efficiency and Team Productivity"
+    description: >
+      Makes the reader able to report the efficiency of a platform from raw
+      task data and user evidence without misleading numbers: outcomes and
+      denominators, percentiles and survivorship, quantitative and
+      qualitative evidence, incentives and confounders.
+
+    content:
+      - type: reading
+        title: "Section Overview"
+        path: sections/section-010/README.md
+      - type: reading
+        title: "Task Outcomes, Flow And Developer Productivity Evidence"
+        path: sections/section-010/module-01/course.md
+      - type: reading
+        title: "Task Outcomes, Populations And Denominators"
+        path: sections/section-010/module-01/course-01-task-outcomes-populations-and-denominators.md
+      - type: reading
+        title: "Time To Complete, Percentiles And Survivorship"
+        path: sections/section-010/module-01/course-02-time-to-complete-percentiles-and-survivorship.md
+      - type: reading
+        title: "Question"
+        path: sections/section-010/module-01/labs/lab-01/question.md
+      - type: lab
+        title: "Honest Outcome Report Lab"
+        path: sections/section-010/module-01/labs/lab-01
+        difficulty: intermediate
+        estimated_duration: 25m
+        topic: platform-metrics
+        task_kind: build
+        tags: [completion-rate, percentile, survivorship, jq, denominator]
+        learning_goals:
+          - Count outcomes and compute a completion rate over all attempts
+          - Compute the median and 90th percentile over completed requests with the nearest-rank method
+          - Find the request class with the lowest completion rate
+        resources:
+          - name: "Google SPACE framework article"
+            url: https://queue.acm.org/detail.cfm?id=3454124
+      - type: reading
+        title: "Summary"
+        path: sections/section-010/module-01/course-03-summary.md
+      - type: reading
+        title: "Developer Experience Evidence And Incentives"
+        path: sections/section-010/module-02/course.md
+      - type: reading
+        title: "Quantitative And Qualitative Evidence Of Developer Experience"
+        path: sections/section-010/module-02/course-01-quantitative-and-qualitative-evidence-of-developer-experience.md
+      - type: reading
+        title: "Incentives, Context And Causation"
+        path: sections/section-010/module-02/course-02-incentives-context-and-causation.md
+      - type: reading
+        title: "Question"
+        path: sections/section-010/module-02/labs/lab-01/question.md
+      - type: lab
+        title: "Check A Platform Success Claim Lab"
+        path: sections/section-010/module-02/labs/lab-01
+        difficulty: intermediate
+        estimated_duration: 25m
+        topic: platform-metrics
+        task_kind: build
+        tags: [tickets, completion-rate, survey, confounder, claim, jq]
+        learning_goals:
+          - Compare tickets and completion rate before and after a change
+          - Find the top theme in survey answers
+          - Name a confounder and give a verdict that follows the evidence
+        resources:
+          - name: "Google SPACE framework article"
+            url: https://queue.acm.org/detail.cfm?id=3454124
+      - type: reading
+        title: "Summary"
+        path: sections/section-010/module-02/course-03-summary.md
+      - type: reading
+        title: "Question"
+        path: sections/section-010/capstone/labs/lab-01/question.md
+      - type: lab
+        title: "Platform Efficiency Capstone"
+        path: sections/section-010/capstone/labs/lab-01
+        difficulty: advanced
+        estimated_duration: 40m
+        topic: platform-metrics
+        task_kind: build
+        tags: [percentile, completion-rate, dashboard, incentives, goodhart, evidence, jq]
+        learning_goals:
+          - Compute completion rate and a 90th percentile from timestamps over completed requests
+          - Judge a dashboard claim against the computed percentile
+          - Reject a ranking proposal and say what the measure rewards
+        resources:
+          - name: "Google SPACE framework article"
+            url: https://queue.acm.org/detail.cfm?id=3454124
+      - type: quiz
+        title: "Knowledge Check: Platform Efficiency and Team Productivity"
+        path: sections/section-010/quiz.yaml
+        pass_score: 70
+
+  - id: module-020
+    title: "DORA Metrics for Platform Initiatives"
+    description: >
+      Makes the reader able to compute the five DORA delivery metrics from
+      deployment events and to interpret them for a platform initiative:
+      definitions, medians and denominators, the move from four keys to five
+      metrics, service scope, causal limits and Goodhart's law.
+
+    content:
+      - type: reading
+        title: "Section Overview"
+        path: sections/section-020/README.md
+      - type: reading
+        title: "Delivery Metrics From Deployment Events"
+        path: sections/section-020/module-01/course.md
+      - type: reading
+        title: "The Five Delivery Metrics"
+        path: sections/section-020/module-01/course-01-the-five-delivery-metrics.md
+      - type: reading
+        title: "Computing Delivery Metrics From Deployment Events"
+        path: sections/section-020/module-01/course-02-computing-delivery-metrics-from-deployment-events.md
+      - type: reading
+        title: "Question"
+        path: sections/section-020/module-01/labs/lab-01/question.md
+      - type: lab
+        title: "Delivery Metrics From Deployment Events Lab"
+        path: sections/section-020/module-01/labs/lab-01
+        difficulty: intermediate
+        estimated_duration: 25m
+        topic: dora-metrics
+        task_kind: build
+        tags: [dora, lead-time, deployment-frequency, change-fail-rate, recovery-time, rework, jq]
+        learning_goals:
+          - Compute deployment frequency, median change lead time and the two rates from deployment records
+          - Compute failed deployment recovery time over failed deployments only
+          - Record all values in a ConfigMap
+        resources:
+          - name: "DORA metrics guide"
+            url: https://dora.dev/guides/dora-metrics/
+      - type: reading
+        title: "Summary"
+        path: sections/section-020/module-01/course-03-summary.md
+      - type: reading
+        title: "Interpreting DORA Metrics For Platform Initiatives"
+        path: sections/section-020/module-02/course.md
+      - type: reading
+        title: "From Four Keys To Five Metrics"
+        path: sections/section-020/module-02/course-01-from-four-keys-to-five-metrics.md
+      - type: reading
+        title: "Service Scope, Causal Limits And Platform Initiatives"
+        path: sections/section-020/module-02/course-02-service-scope-causal-limits-and-platform-initiatives.md
+      - type: reading
+        title: "Question"
+        path: sections/section-020/module-02/labs/lab-01/question.md
+      - type: lab
+        title: "Judge A Platform Claim With DORA Metrics Lab"
+        path: sections/section-020/module-02/labs/lab-01
+        difficulty: intermediate
+        estimated_duration: 25m
+        topic: dora-metrics
+        task_kind: build
+        tags: [dora, mttr, throughput, instability, confounder, per-service, jq]
+        learning_goals:
+          - Name the current metric behind an old MTTR field
+          - Find services whose throughput improved and whose instability worsened
+          - Decide whether a platform claim is proven and at which scope to report
+        resources:
+          - name: "DORA metrics guide"
+            url: https://dora.dev/guides/dora-metrics/
+      - type: reading
+        title: "Summary"
+        path: sections/section-020/module-02/course-03-summary.md
+      - type: reading
+        title: "Question"
+        path: sections/section-020/capstone/labs/lab-01/question.md
+      - type: lab
+        title: "DORA Metrics Capstone"
+        path: sections/section-020/capstone/labs/lab-01
+        difficulty: advanced
+        estimated_duration: 40m
+        topic: dora-metrics
+        task_kind: build
+        tags: [dora, lead-time, recovery-time, rework, instability, dashboard, mttr, jq]
+        learning_goals:
+          - Compute all five metrics for one service from deployment events
+          - Name the instability metrics and the current name of the recovery metric
+          - Judge a legacy MTTR dashboard panel against its definition
+        resources:
+          - name: "DORA metrics guide"
+            url: https://dora.dev/guides/dora-metrics/
+      - type: quiz
+        title: "Knowledge Check: DORA Metrics for Platform Initiatives"
+        path: sections/section-020/quiz.yaml
+        pass_score: 70
+      - type: quiz
+        title: "Final Knowledge Check: Measuring your Platform"
+        path: sections/final-domain-quiz.yaml
+        pass_score: 70

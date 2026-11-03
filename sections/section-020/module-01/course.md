@@ -1,23 +1,28 @@
 ---
 draft: true
 exam_objectives:
-- DORA Metrics for Platform Initiatives
+  - DORA Metrics for Platform Initiatives
 ---
-# Delivery Metrics, Historical Models And Platform Interpretation
+# Delivery Metrics From Deployment Events
 
-This module develops delivery Metrics, Historical Models And Platform Interpretation. Use the explanations to connect intended behavior with responsible components and observable evidence.
+This module explains the five software delivery metrics of the DORA research programme and computes them from raw deployment events. It defines each metric, says which events it needs, and shows how the choice of statistic and the handling of failed deployments change the result. The hands-on part works on a list of deployments of one service with `kubectl` and `jq`.
 
 ## Learning Goals
 
-- Explain delivery throughput and instability measures.
-- Distinguish traditional four-key terminology from the current five-metric model.
-- Reason about service scope, causal limits and platform improvements.
+- Name the five delivery metrics and sort them into the throughput group and the instability group.
+- Define change lead time, deployment frequency, failed deployment recovery time, change fail rate and deployment rework rate.
+- List the events and timestamps that each metric needs.
+- Compute the five metrics from deployment events with `jq`, with a stated statistic and a stated window.
+- Explain why a median is preferred to a mean for durations and why the service is the unit of measurement.
 
 ## Before You Start
 
-Examples illustrate declared relationships and reasoning. No execution environment is required or claimed.
+You should know what a deployment is and what a ConfigMap is in Kubernetes. The playground holds deployment events in a ConfigMap and you read them with `kubectl` and `jq`. Technical terms are defined where they first appear.
 
 ## Reading Order
 
-1. Delivery Metrics, Historical Models And Platform Interpretation
-2. Summary
+1. The Five Delivery Metrics
+2. Computing The Metrics From Deployment Events
+3. Summary
+
+<!-- astrona:playground -->

@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=https://cli.astrona.io/schema/lab-config.schema.json
+#
+# Report Task Outcomes With Denominators (LAB). Graded against the live cluster. Built untested.
+apiVersion: astrona.io/v1
+metadata:
+  name: ats-082-lab-010-01
+  docs:
+    prerequisites: prerequisites.md
+    question: question.md
+    solution: solution.md
+
+runtime:
+  type: kind
+  kind:
+    image: kindest/node:v1.35.8
+
+# Starting state: namespace metrics with 20 environment requests (12 completed, 5 failed, 3 abandoned) in two classes.
+bootstrap:
+  init:
+    - name: seed-cluster
+      description: Create the namespace and the source data
+      type: file
+      source: bootstrap/01-seed-cluster.sh
+
+# Applied only by `astrona test`: the reference solution.
+testing:
+  init:
+    - name: apply-solution
+      description: Apply the reference solution
+      type: file
+      source: solution/apply.sh
+
+validation:
+  scripts:
+    - name: requests-data-unchanged
+      description: The 20 source requests are unchanged
+      type: file
+      source: validation/validate-requests-data-unchanged.sh
+      hint: Do not edit the ConfigMap provisioning-requests. Compute from it and write your results in a new ConfigMap.
+    - name: attempts-and-completion
+      description: attempts, completed and completion-rate-percent are recorded
+      type: file
+      source: validation/validate-attempts-and-completion.sh
+      hint: The completion rate is completed requests divided by all attempts, times 100. Count every outcome in the denominator.
+    - name: completed-percentiles
+      description: p50 and p90 of completed requests are recorded
+      type: file
+      source: validation/validate-completed-percentiles.sh
+      hint: Sort the seconds of the completed requests and take the value at position ceil(p x n) (nearest rank).
+    - name: failed-and-abandoned
+      description: failed and abandoned requests are counted
+      type: file
+      source: validation/validate-failed-and-abandoned.sh
+      hint: Count the outcomes failed and abandoned separately.
+    - name: worst-class
+      description: The class with the lowest completion rate is named
+      type: file
+      source: validation/validate-worst-class.sh
+      hint: Group the requests by class and compute the completion rate of each class.
+
+teardown:
+  keepCluster: false
