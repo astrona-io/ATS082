@@ -5,7 +5,7 @@ kind: question_bank
 id: ats082-020
 course_id: ATS082
 exam_code: CNPA
-status: draft
+status: alpha
 provenance: Original practice material written for this course; not official exam
   questions.
 scope:
