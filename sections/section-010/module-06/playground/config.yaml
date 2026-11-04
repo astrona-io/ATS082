@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://cli.astrona.io/schema/lab-config.schema.json
+#
+# Cost And Resource Efficiency (PLAYGROUND). A clean sandbox: it starts a cluster and loads the
+# source data, then stays running for free exploration. No task, no grading,
+# no `astrona submit`. Built untested.
+apiVersion: astrona.io/v1
+metadata:
+  name: ats-082-playground-010-06
+  docs:
+    guide: docs/overview.md
+
+runtime:
+  type: kind
+  kind:
+    image: kindest/node:v1.35.8
+
+# What the learner starts with: namespace metrics with the ConfigMap team-resources (four teams with requested and used CPU, monthly cost, environments and idle environments) and the ConfigMap platform-cost (the monthly cost of the platform team and the number of teams it supports). No report exists.
+bootstrap:
+  manifests:
+    - name: data
+      type: file
+      source: manifests/data.yaml
+
+teardown:
+  keepCluster: false

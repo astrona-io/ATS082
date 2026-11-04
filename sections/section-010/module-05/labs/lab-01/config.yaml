@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=https://cli.astrona.io/schema/lab-config.schema.json
+#
+# Report Error Budgets For Platform Services (LAB). Graded against the live cluster. Built untested.
+apiVersion: astrona.io/v1
+metadata:
+  name: ats-082-lab-010-05
+  docs:
+    prerequisites: prerequisites.md
+    question: question.md
+    solution: solution.md
+
+runtime:
+  type: kind
+  kind:
+    image: kindest/node:v1.35.8
+
+# Starting state: namespace metrics with the ConfigMap service-events (four platform services with an SLO target and 30 days of good and total events) and the ConfigMap recent-hour (events of one service in the last hour). No report exists.
+bootstrap:
+  init:
+    - name: seed-cluster
+      description: Create the namespace and the source data
+      type: file
+      source: bootstrap/01-seed-cluster.sh
+
+# Applied only by `astrona test`: the reference solution.
+testing:
+  init:
+    - name: apply-solution
+      description: Apply the reference solution
+      type: file
+      source: solution/apply.sh
+
+validation:
+  scripts:
+    - name: data-unchanged
+      description: "The source ConfigMaps are unchanged"
+      type: file
+      source: validation/validate-source-data-unchanged.sh
+      hint: "Do not edit the source ConfigMaps. Compute from them and write your results in a new ConfigMap."
+    - name: slis
+      description: "SLI percentages are recorded"
+      type: file
+      source: validation/validate-slis.sh
+      hint: "The SLI is good events divided by total events, times 100."
+    - name: budget-used
+      description: "Error budget used is recorded for each service"
+      type: file
+      source: validation/validate-budget-used.sh
+      hint: "Allowed bad events = total events x (100 - SLO) / 100. Budget used = bad events / allowed bad events x 100."
+    - name: services-missing-slo
+      description: "services-missing-slo lists the services below their SLO"
+      type: file
+      source: validation/validate-services-missing-slo.sh
+      hint: "Compare each SLI with its own SLO target. List the names sorted and joined with commas."
+    - name: most-budget-used
+      description: "most-budget-used-service names the service with the largest share of budget used"
+      type: file
+      source: validation/validate-most-budget-used.sh
+      hint: "Compute budget used for every service and take the largest."
+    - name: burn-rate
+      description: "The burn rate and the days to exhaust the budget are recorded"
+      type: file
+      source: validation/validate-burn-rate.sh
+      hint: "Burn rate = error ratio of the hour / allowed error ratio. The allowed ratio is (100 - SLO) / 100. Days to exhaust = 30 / burn rate."
+teardown:
+  keepCluster: false

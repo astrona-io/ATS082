@@ -80,6 +80,32 @@ sections:
     - Building A Balanced Metric Set
     playground: true
     module_lab: true
+  - id: module-05
+    title: "Platform Reliability Measures: SLIs, SLOs And Error Budgets"
+    objectives:
+    - Define SLIs and SLOs and convert a target into allowed bad events.
+    - Compute error budget used and apply a budget policy.
+    - Compute a burn rate and explain multi-window alerting.
+    outline:
+    - Service Level Indicators For A Platform
+    - Service Level Objectives, Windows And The Nines
+    - Error Budgets And Budget Policy
+    - Burn Rate And Alerting On Budget Use
+    playground: true
+    module_lab: true
+  - id: module-06
+    title: "Cost And Resource Efficiency Of The Platform"
+    objectives:
+    - Compute utilization and fleet utilization from requests and usage.
+    - Allocate cost, compute unit costs and find waste and idle environments.
+    - Report platform value with a baseline for each audience.
+    outline:
+    - Resource Requests, Usage And Utilization
+    - Cost Allocation And Unit Costs
+    - Waste, Idle Environments And Rightsizing
+    - Reporting Platform Value To Stakeholders
+    playground: true
+    module_lab: true
 - id: section-020
   title: DORA Metrics for Platform Initiatives
   curriculum_item: DORA Metrics for Platform Initiatives

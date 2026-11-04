@@ -187,6 +187,72 @@ modules:
         title: "Summary"
         path: sections/section-010/module-04/course-05-summary.md
       - type: reading
+        title: "Platform Reliability Measures: SLIs, SLOs And Error Budgets"
+        path: sections/section-010/module-05/course.md
+      - type: reading
+        title: "Service Level Indicators For A Platform"
+        path: sections/section-010/module-05/course-01-service-level-indicators-for-a-platform.md
+      - type: reading
+        title: "Service Level Objectives, Windows And The Nines"
+        path: sections/section-010/module-05/course-02-service-level-objectives-windows-and-the-nines.md
+      - type: reading
+        title: "Error Budgets And Budget Policy"
+        path: sections/section-010/module-05/course-03-error-budgets-and-budget-policy.md
+      - type: reading
+        title: "Question"
+        path: sections/section-010/module-05/labs/lab-01/question.md
+      - type: lab
+        title: "Report Error Budgets For Platform Services Lab"
+        path: sections/section-010/module-05/labs/lab-01
+        difficulty: intermediate
+        estimated_duration: 25m
+        topic: platform-metrics
+        task_kind: build
+        tags: [sli, slo, error-budget, burn-rate, jq]
+        learning_goals:
+          - Compute SLIs and the share of error budget used from event counts
+          - Find the services that miss their own SLO
+          - Compute a burn rate and the time to exhaust the budget
+      - type: reading
+        title: "Burn Rate And Alerting On Budget Use"
+        path: sections/section-010/module-05/course-04-burn-rate-and-alerting-on-budget-use.md
+      - type: reading
+        title: "Summary"
+        path: sections/section-010/module-05/course-05-summary.md
+      - type: reading
+        title: "Cost And Resource Efficiency Of The Platform"
+        path: sections/section-010/module-06/course.md
+      - type: reading
+        title: "Resource Requests, Usage And Utilization"
+        path: sections/section-010/module-06/course-01-resource-requests-usage-and-utilization.md
+      - type: reading
+        title: "Cost Allocation And Unit Costs"
+        path: sections/section-010/module-06/course-02-cost-allocation-and-unit-costs.md
+      - type: reading
+        title: "Waste, Idle Environments And Rightsizing"
+        path: sections/section-010/module-06/course-03-waste-idle-environments-and-rightsizing.md
+      - type: reading
+        title: "Question"
+        path: sections/section-010/module-06/labs/lab-01/question.md
+      - type: lab
+        title: "Report Resource Waste And Unit Cost Lab"
+        path: sections/section-010/module-06/labs/lab-01
+        difficulty: intermediate
+        estimated_duration: 25m
+        topic: platform-metrics
+        task_kind: build
+        tags: [utilization, waste, unit-cost, idle-environments, jq]
+        learning_goals:
+          - Compute utilization per team and for the fleet
+          - Compute waste in cores and in money and name the team for each
+          - Compute cost per environment, idle environment cost and platform cost per team
+      - type: reading
+        title: "Reporting Platform Value To Stakeholders"
+        path: sections/section-010/module-06/course-04-reporting-platform-value-to-stakeholders.md
+      - type: reading
+        title: "Summary"
+        path: sections/section-010/module-06/course-05-summary.md
+      - type: reading
         title: "Question"
         path: sections/section-010/capstone/labs/lab-01/question.md
       - type: lab

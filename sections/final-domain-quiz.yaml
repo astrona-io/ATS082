@@ -605,3 +605,91 @@ questions:
   correct_option: a
   explanation: Splitting changes the count but not the value delivered, so the number
     gains and reality does not.
+- id: ats082-final-q25
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute the share of budget used
+  source_readings:
+  - sections/section-010/module-05/course-03-error-budgets-and-budget-policy.md
+  prompt: "A service had 300 bad events. Its target allows 250 bad events in the window. What share of the budget did it use?"
+  options:
+  - id: a
+    text: "300 percent"
+    explanation: "This ignores the allowed number."
+  - id: b
+    text: "120 percent"
+    explanation: "Correct. 300 / 250 x 100 is 120 percent."
+  - id: c
+    text: "83 percent"
+    explanation: "This divides the wrong way."
+  - id: d
+    text: "50 percent"
+    explanation: "No calculation gives 50 percent."
+  correct_option: b
+  explanation: "Correct. 300 / 250 x 100 is 120 percent."
+- id: ats082-final-q26
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute a burn rate
+  source_readings:
+  - sections/section-010/module-05/course-04-burn-rate-and-alerting-on-budget-use.md
+  prompt: "In the last hour a service with a 99.5 percent target had 10000 events and 100 bad events. What is its burn rate?"
+  options:
+  - id: a
+    text: "0.5"
+    explanation: "This divides the allowed ratio by the observed ratio."
+  - id: b
+    text: "10"
+    explanation: "A burn rate of 10 would need 500 bad events."
+  - id: c
+    text: "1"
+    explanation: "A burn rate of 1 would need 50 bad events."
+  - id: d
+    text: "2"
+    explanation: "Correct. The error ratio is 0.01 and the allowed ratio is 0.005."
+  correct_option: d
+  explanation: "Correct. The error ratio is 0.01 and the allowed ratio is 0.005."
+- id: ats082-final-q27
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute fleet utilization
+  source_readings:
+  - sections/section-010/module-06/course-01-resource-requests-usage-and-utilization.md
+  prompt: "Four teams request 20000 millicores in total and use 7400 in total. What is the fleet utilization?"
+  options:
+  - id: a
+    text: "27 percent"
+    explanation: "This is not the ratio."
+  - id: b
+    text: "47.5 percent"
+    explanation: "This is the simple average of the four team percentages in the playground data."
+  - id: c
+    text: "74 percent"
+    explanation: "This divides by the wrong total."
+  - id: d
+    text: "37 percent"
+    explanation: "Correct. 7400 / 20000 x 100 is 37."
+  correct_option: d
+  explanation: "Correct. 7400 / 20000 x 100 is 37."
+- id: ats082-final-q28
+  type: single_choice
+  difficulty: intermediate
+  learning_objective: Compute waste cost
+  source_readings:
+  - sections/section-010/module-06/course-03-waste-idle-environments-and-rightsizing.md
+  prompt: "A team pays 1500 dollars a month, requests 6000 millicores and uses 900. What is its waste cost?"
+  options:
+  - id: a
+    text: "225 dollars"
+    explanation: "This uses the used share."
+  - id: b
+    text: "1275 dollars"
+    explanation: "Correct. 1500 x 5100 / 6000 is 1275."
+  - id: c
+    text: "5100 dollars"
+    explanation: "This is the wasted millicores."
+  - id: d
+    text: "900 dollars"
+    explanation: "This is the used millicores."
+  correct_option: b
+  explanation: "Correct. 1500 x 5100 / 6000 is 1275."

@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=https://cli.astrona.io/schema/lab-config.schema.json
+#
+# Report Resource Waste And Unit Cost (LAB). Graded against the live cluster. Built untested.
+apiVersion: astrona.io/v1
+metadata:
+  name: ats-082-lab-010-06
+  docs:
+    prerequisites: prerequisites.md
+    question: question.md
+    solution: solution.md
+
+runtime:
+  type: kind
+  kind:
+    image: kindest/node:v1.35.8
+
+# Starting state: namespace metrics with the ConfigMap team-resources (four teams with requested and used CPU, monthly cost, environments and idle environments) and the ConfigMap platform-cost (the monthly cost of the platform team and the number of teams it supports). No report exists.
+bootstrap:
+  init:
+    - name: seed-cluster
+      description: Create the namespace and the source data
+      type: file
+      source: bootstrap/01-seed-cluster.sh
+
+# Applied only by `astrona test`: the reference solution.
+testing:
+  init:
+    - name: apply-solution
+      description: Apply the reference solution
+      type: file
+      source: solution/apply.sh
+
+validation:
+  scripts:
+    - name: data-unchanged
+      description: "The source ConfigMaps are unchanged"
+      type: file
+      source: validation/validate-source-data-unchanged.sh
+      hint: "Do not edit the source ConfigMaps. Compute from them and write your results in a new ConfigMap."
+    - name: utilization
+      description: "CPU utilization is recorded for each team and for the fleet"
+      type: file
+      source: validation/validate-utilization.sh
+      hint: "Utilization = used CPU / requested CPU x 100. The fleet value uses the sums over all teams."
+    - name: waste
+      description: "Waste is recorded in cores and in money"
+      type: file
+      source: validation/validate-waste.sh
+      hint: "Wasted CPU = requested - used. Waste cost = monthly cost x (requested - used) / requested."
+    - name: unit-cost
+      description: "Unit costs are recorded"
+      type: file
+      source: validation/validate-unit-cost.sh
+      hint: "Cost per environment = monthly cost / environments. Idle environment cost = cost per environment x idle environments, summed over teams. Platform cost per team = platform monthly cost / teams supported."
+teardown:
+  keepCluster: false

@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: metrics
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: service-events
+  namespace: metrics
+data:
+  services.json: |
+    [
+      {
+        "service": "provisioning-api",
+        "slo_target_percent": 99.5,
+        "total_events": 200000,
+        "good_events": 199400
+      },
+      {
+        "service": "pipeline-runner",
+        "slo_target_percent": 99.5,
+        "total_events": 50000,
+        "good_events": 49700
+      },
+      {
+        "service": "portal",
+        "slo_target_percent": 99.9,
+        "total_events": 100000,
+        "good_events": 99950
+      },
+      {
+        "service": "artifact-registry",
+        "slo_target_percent": 99.9,
+        "total_events": 100000,
+        "good_events": 99890
+      }
+    ]
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: recent-hour
+  namespace: metrics
+data:
+  hour.json: |
+    {
+      "service": "provisioning-api",
+      "total_events": 10000,
+      "bad_events": 100
+    }

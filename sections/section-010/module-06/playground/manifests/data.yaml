@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: metrics
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: team-resources
+  namespace: metrics
+data:
+  teams.json: |
+    [
+      {
+        "team": "bridge",
+        "cpu_requested_millicores": 8000,
+        "cpu_used_millicores": 2000,
+        "monthly_cost": 1600,
+        "environments": 8,
+        "idle_environments": 1
+      },
+      {
+        "team": "scout",
+        "cpu_requested_millicores": 4000,
+        "cpu_used_millicores": 3000,
+        "monthly_cost": 900,
+        "environments": 4,
+        "idle_environments": 0
+      },
+      {
+        "team": "shuttle",
+        "cpu_requested_millicores": 6000,
+        "cpu_used_millicores": 900,
+        "monthly_cost": 1500,
+        "environments": 6,
+        "idle_environments": 3
+      },
+      {
+        "team": "probe",
+        "cpu_requested_millicores": 2000,
+        "cpu_used_millicores": 1500,
+        "monthly_cost": 500,
+        "environments": 2,
+        "idle_environments": 0
+      }
+    ]
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: platform-cost
+  namespace: metrics
+data:
+  cost.json: |
+    {
+      "platform_monthly_cost": 12000,
+      "teams_supported": 4
+    }
