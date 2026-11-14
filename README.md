@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://astrona.io/courses/certified-cloud-native-platform-engineering-associate-cnpa">
+    <img src="https://astrona.io/courses/certified-cloud-native-platform-engineering-associate-cnpa/domains/ATS082.svg" alt="ATS082: Measuring your Platform, part of the Certified Cloud Native Platform Engineering Associate course on Astrona" width="100%">
+  </a>
+</p>
+
 # Measuring your Platform (ATS082)
 
 Certified Cloud Native Platform Engineering Associate (CNPA) — Measuring your Platform, 8% of the published curriculum. This course is part of ATP016.
